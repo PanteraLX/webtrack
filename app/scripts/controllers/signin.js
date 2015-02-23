@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name webtrackApp.controller:TestCtrl
+ * @name webtrackApp.controller:SigninCtrl
  * @description
  * # TestCtrl
  * Controller of the webtrackApp
  */
 angular.module('webtrackApp')
-  .controller('TestCtrl', function ($scope) {
+  .controller('SigninCtrl', function ($scope) {
     $scope.hallo = 'hallo';
   });
