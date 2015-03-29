@@ -38,7 +38,7 @@ angular
         controller: 'ContactCtrl'
       })
       .when('/add', {
-        templateUrl: 'views/hinzufügen.html',
+        templateUrl: 'views/add.html',
         controller: 'AddCtrl'
       })
       .otherwise({
