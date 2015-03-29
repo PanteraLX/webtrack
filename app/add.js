@@ -1,3 +1,17 @@
+'use strict';
+
 /**
- * Created by u1005heinzmann on 29.03.15.
+ * @ngdoc function
+ * @name webtrackApp.controller:AddCtrl
+ * @description
+ * # AddCtrl
+ * Controller of the webtrackApp
  */
+angular.module('webtrackApp')
+  .controller('AddCtrl', function ($scope) {
+    $scope.awesomeThings = [
+      'HTML5 Boilerplate',
+      'AngularJS',
+      'Karma'
+    ];
+  });
