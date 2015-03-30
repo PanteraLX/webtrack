@@ -3,20 +3,21 @@
   <p class="lead">
     WebTrack: A web based application for project management
   </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+  <p><a class="btn btn-lg btn-primary" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
 </div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+<div class="jumbotron">
+  <form class="form-signin" ng-submit="login()" novalidate name="loginForm">
+    <h2 class="form-signin-heading">Please sign in</h2><br />
+    <label for="inputUsername" class="sr-only">E-Mail</label>
+    <input type="email" id="inputUsername" class="form-control" placeholder="E-Mail" ng-required="true" autofocus ng-model="user.email">
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" ng-required="true" ng-model="user.password">
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+  </form>
 </div>
