@@ -8,7 +8,12 @@
  * Controller of the webtrackApp
  */
 angular.module('webtrackApp')
-  .controller('OverviewCtrl', function ($scope, $filter) {
+  .controller('OverviewCtrl', function ($scope, $location) {
+
+    var ref = new Firebase("https://webtrack.firebaseio.com/data_project");
+
+    //$scope.data = $firebaseObject(ref);
+    //console.log($scope.data);
     var
       projectList = ['Webtrack', 'IPA', 'EgoProjekt', 'Säich', 'Bier'],
       leaderList = ['Heinzmann Samuel', 'Richter Stefanie', 'Daniel Völlmin', 'Lars Anliker', 'Stiicher'];
@@ -29,6 +34,13 @@ angular.module('webtrackApp')
       };
     }
 
+    $scope.rowCollection = [];
+    for (var id = 1; id <= 20; id++) {
+      $scope.rowCollection.push(createRandomItem(id));
+    }
+
+    $scope.displayedCollection = [].concat($scope.rowCollection);
+
     $scope.removeRow = function removeRow(row) {
       var box = window.confirm("Wollen sie das Pojekt wirklich löschen?")
       if (box) {
@@ -41,17 +53,20 @@ angular.module('webtrackApp')
 
     $scope.editRow = function editRow(row) {
       console.log('Bravo, dü chaisch super klicku')
+      console.log(row);
     }
+
+    $scope.go = function go(path) {
+      $location.path(path)
+    }
+
 
     $scope.newProject = function newProject(row) {
       console.log('Bravo, dü chaisch super klicku')
     }
 
-    $scope.itemsByPage=20;
+    //$scope.itemsByPage=20;
 
-    $scope.rowCollection = [];
-    for (var j = 1; j <= 20; j++) {
-      $scope.rowCollection.push(createRandomItem(j));
-    }
+
 
   });

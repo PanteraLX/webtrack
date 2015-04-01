@@ -1,10 +1,13 @@
+<div ng-controller="OverviewCtrl">
 <h2>Projekte</h2>
 
-<button type="button" ng-click="newProject()" class="btn btn-success">
-  Neues Projekt
-</button>
+<a ng-href="#/add">
+  <button type="button" ng-click="newProject()" class="btn btn-success">
+    Neues Projekt
+  </button>
+</a>
 
-<table st-safe-src="rowCollection" st-table="rowCollection" class="table table-striped">
+<table st-safe-src="rowCollection" st-table="displayedCollection" class="table table-striped">
   <thead>
     <tr>
       <th st-sort="projectId">ID</th>
@@ -44,8 +47,11 @@
   </tfoot>
 </table>
 
-<button type="button" ng-click="newProject()" class="btn btn-success">
-  Neues Projekt
-</button>
+<a ng-href="#/add">
+  <button type="button" ng-click="newProject()" class="btn btn-success">
+    Neues Projekt
+  </button>
+</a>
 
 <div ng-show="isLoading" class="loading-indicator"></div>
+</div>
