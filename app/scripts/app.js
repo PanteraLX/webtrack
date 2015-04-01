@@ -45,6 +45,10 @@ angular
         templateUrl: 'views/edit.html',
         controller: 'EditCtrl'
       })
+      .when('/overview', {
+        templateUrl: 'views/overview.html',
+        controller: 'OverviewCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
