@@ -8,7 +8,7 @@
  * Controller of the webtrackApp
  */
 angular.module('webtrackApp')
-  .controller('OverviewCtrl', function ($scope, $location) {
+  .controller('OverviewCtrl', ['$scope', '$location', function ($scope, $location) {
 
     var ref = new Firebase("https://webtrack.firebaseio.com/data_project");
 
@@ -25,7 +25,7 @@ angular.module('webtrackApp')
         projectLength = Math.floor(Math.random() * 100),
         employees = Math.floor(Math.random() * 10);
 
-      return{
+      return {
         projectId: id,
         projectName: projectName,
         projectLeader: projectLeader,
@@ -37,7 +37,7 @@ angular.module('webtrackApp')
     $scope.rowCollection = [];
     for (var id = 1; id <= 20; id++) {
       $scope.rowCollection.push(createRandomItem(id));
-    }
+    };
 
     $scope.displayedCollection = [].concat($scope.rowCollection);
 
@@ -49,24 +49,23 @@ angular.module('webtrackApp')
           $scope.rowCollection.splice(index, 1);
         }
       }
-    }
+    };
 
     $scope.editRow = function editRow(row) {
       console.log('Bravo, dü chaisch super klicku')
       console.log(row);
-    }
+    };
 
     $scope.go = function go(path) {
       $location.path(path)
-    }
+    };
 
 
     $scope.newProject = function newProject(row) {
       console.log('Bravo, dü chaisch super klicku')
-    }
+    };
 
-    //$scope.itemsByPage=20;
+    $scope.itemsByPage=10;
 
 
-
-  });
+  }]);
