@@ -1,11 +1,21 @@
 <h2>Projekte</h2>
-<div></div>
-  <a ng-href="#/add">
-    <button type="button" ng-click="newProject()" class="btn btn-success">
-      Neues Projekt
+<br />
+<div class="row">
+  <div class="col-md-4">
+    <a ng-href="#/add">
+      <button type="button" ng-click="newProject()" class="btn btn-success">
+        Neues Projekt
+      </button>
+    </a>
+    <button type="button" ng-click="removeRow()" class="btn btn-danger">
+      Projekte löschen
     </button>
-  </a>
-
+  </div>
+  <div class="col-md-offset-6 col-md-2">
+    <input st-table="rowCollection" st-search="" class="form-control" placeholder="Suche" type="text"/>
+  </div>
+</div>
+<br />
 <table st-table="rowCollection" class="table table-striped">
   <thead>
     <tr>
@@ -46,11 +56,4 @@
   </tfoot>
 </table>
 
-<a ng-href="#/add">
-  <button type="button" ng-click="newProject()" class="btn btn-success">
-    Neues Projekt
-  </button>
-</a>
-
-<div ng-show="isLoading" class="loading-indicator"></div>
 
