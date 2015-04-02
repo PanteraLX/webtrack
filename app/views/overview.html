@@ -7,7 +7,7 @@
         Neues Projekt
       </button>
     </a>
-    <button type="button" ng-click="removeRow()" class="btn btn-danger">
+    <button type="button" ng-click="removeMultiProject()" class="btn btn-danger">
       Projekte löschen
     </button>
   </div>
@@ -36,12 +36,12 @@
       <td>{{row.projectLength}}</td>
       <td>{{row.employees}}</td>
       <td>
-        <button type="button" ng-click="editRow(row)" class="btn btn-sm btn-primary">
+        <button type="button" ng-click="editProject(row)" class="btn btn-sm btn-primary">
           <i class="glyphicon glyphicon-edit"></i>
         </button>
       </td>
       <td>
-        <button type="button" ng-click="removeRow(row)" class="btn btn-sm btn-danger">
+        <button type="button" ng-click="removeSingleProject(row)" class="btn btn-sm btn-danger">
         <i class="glyphicon glyphicon-remove"></i>
         </button>
       </td>
