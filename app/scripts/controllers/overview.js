@@ -41,7 +41,7 @@ angular.module('webtrackApp')
 
     $scope.displayedCollection = [].concat($scope.rowCollection);
 
-    $scope.removeRow = function removeRow(row) {
+    $scope.removeSingleProject = function removeSingleProject(row) {
       var box = window.confirm("Wollen sie das Pojekt wirklich löschen?")
       if (box) {
         var index = $scope.rowCollection.indexOf(row);
@@ -51,7 +51,23 @@ angular.module('webtrackApp')
       }
     };
 
-    $scope.editRow = function editRow(row) {
+    $scope.removeMultiProject = function removeMultiProject() {
+      var box = window.confirm("Wollen sie diese Pojekte wirklich löschen?")
+      if (box) {
+        for (id = 1; id <= $scope.rowCollection.length; id++ ) {
+          if($scope.rowCollection[id-1].isSelected) {
+            var index = $scope.rowCollection.indexOf(id);
+            if (index !== -1) {
+              $scope.rowCollection.splice(id, 1);
+            }
+            console.log(id);
+          }
+        }
+      }
+    };
+
+
+    $scope.editProject = function editProject(row) {
       console.log('Bravo, dü chaisch super klicku')
       console.log(row);
     };
