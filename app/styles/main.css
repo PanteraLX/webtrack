@@ -81,3 +81,7 @@ body {
     border-bottom: 0;
   }
 }
+
+.st-selected{
+  border-left: 4px solid black;
+}
