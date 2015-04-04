@@ -8,7 +8,7 @@
  * Controller of the webtrackApp
  */
 angular.module('webtrackApp')
-  .controller('OverviewCtrl', ['$scope', '$location', '$firebaseArray', function ($scope, $location, $firebaseArray) {
+  .controller('OverviewCtrl', ['$scope', '$location', '$firebaseArray', 'sharedProperties', function ($scope, $location, $firebaseArray, sharedProperties) {
 
     var url = "https://webtrack.firebaseio.com/data_projects"
     var ref = new Firebase(url);
@@ -41,16 +41,10 @@ angular.module('webtrackApp')
       }
     };
 
-
-    $scope.editProject = function editProject(row) {
-      console.log('Bravo, dü chaisch super klicku')
-      console.log(row);
+    $scope.editProject = function editProject(key) {
+      sharedProperties.setObject($scope.projects[key]);
+      $location.path('/edit');
     };
-
-    $scope.go = function go(path) {
-      $location.path(path)
-    };
-
 
     $scope.newProject = function newProject(row) {
       console.log('Bravo, dü chaisch super klicku')

@@ -8,6 +8,6 @@
  * Controller of the webtrackApp
  */
 angular.module('webtrackApp')
-  .controller('EditCtrl', function ($scope) {
-
-  });
+  .controller('EditCtrl', ['$scope', 'sharedProperties', function ($scope, sharedProperties) {
+    $scope.projectToEdit = sharedProperties.getObject();
+  }]);

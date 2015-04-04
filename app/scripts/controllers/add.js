@@ -8,7 +8,7 @@
  * Controller of the webtrackApp
  */
 angular.module('webtrackApp')
-  .controller('AddCtrl', ['$scope', '$firebaseArray', function ($scope, $firebaseArray) {
+  .controller('AddCtrl', ['$scope', '$firebaseArray', '$location', function ($scope, $firebaseArray, $location) {
 
     var url = "https://webtrack.firebaseio.com/data_projects"
     var ref = new Firebase(url);
@@ -25,7 +25,7 @@ angular.module('webtrackApp')
         employees: $scope.employees,
         date: Firebase.ServerValue.TIMESTAMP
       }).then( function () {
-        $scope.projectName = '';
+        $location.path('/overview');
       })
     }
 
