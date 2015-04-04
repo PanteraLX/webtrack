@@ -8,13 +8,5 @@
  * Service in the webtrackApp.
  */
 angular.module('webtrackApp')
-  .service('projectDataadapter', function () {
-    // AngularJS will instantiate a singleton by calling "new" on this function
-
-
-
-
-
-
-
-  });
+  .service('projectDataadapter',['$scope', '$firebase', function ($scope, $firebase) {
+  }]);
