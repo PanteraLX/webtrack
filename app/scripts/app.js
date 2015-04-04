@@ -19,7 +19,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'smart-table',
-    'firebase'
+    'firebase',
+    'webtrack-constants'
   ])
   .config(function ($routeProvider) {
     $routeProvider
