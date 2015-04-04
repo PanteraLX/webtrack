@@ -9,5 +9,24 @@
  */
 angular.module('webtrackApp')
   .service('sharedProperties', function () {
-    // AngularJS will instantiate a singleton by calling "new" on this function
+    var stringValue = '';
+    var objectValue = {
+      data : 'test'
+    };
+
+    return {
+      getString: function() {
+        return stringValue;
+      },
+      setString: function(value) {
+        stringValue = value;
+      },
+      getObject: function() {
+        return objectValue;
+      },
+      setObject: function(value) {
+        objectValue = value;
+      }
+    };
+
   });
