@@ -1,35 +1,39 @@
 <div class="inhalt row">
   <div class="col col-md-12">
-    <form class="form-horizontal" ng-submit="add()" novalidate name="AddingForm">
+    <form class="form-horizontal" ng-submit="addProject()" novalidate name="AddingForm">
       <h2>Neues Projekt hinzufügen</h2>
       <div class="form-group">
         <label class="control-label col-md-2" for="inputProjectName" class="sr-only">Projektname</label>
         <div class="col-md-8">
-          <input type="text" id="inputProjectName" class="form-control" ng-required="true">
+          <input type="text" id="inputProjectName" class="form-control" ng-required="true" ng-model="projectName">
         </div>
       </div>
       <div class="form-group">
         <label class="control-label col-md-2" for="inputPL" class="sr-only">Projektleiter</label>
         <div class="col-md-8">
-          <input type="text" id="inputPL" class="form-control" ng-required="true">
+          <input type="text" id="inputPL" class="form-control" ng-required="true" ng-model="projectLeader">
         </div>
       </div>
       <div class="form-group">
         <label class="control-label col-md-2" for="inputProjectDuration" class="sr-only">Projektdauer</label>
         <div class="col-md-8">
-          <input type="text" id="inputProjectDuration" class="form-control" ng-required="true">
+          <input type="text" id="inputProjectDuration" class="form-control" ng-required="true" ng-model="projectLength">
         </div>
       </div>
       <div class="form-group">
         <label class="control-label col-md-2" for="inputProjectPerson" class="sr-only">Mitarbeiter</label>
         <div class="col-md-8">
-          <input type="text" id="inputProjectPerson" class="form-control" ng-required="true">
+          <input type="text" id="inputProjectPerson" class="form-control" ng-required="true" ng-model="employees">
         </div>
       </div>
       <div class="form-group">
           <div class="col-md-offset-2 col-md-3">
-            <a ng-href="#/" ><button class="btn btn-md btn-primary btn-block" type="submit">Speichern</button></a>
-            <a ng-href="#/overview" ><button class="btn btn-md btn-block" type="button">Abbrechen</button></a>
+            <button class="btn btn-md btn-primary btn-block" type="submit" ng-disabled="AddingForm.$invalid">
+              Speichern
+            </button>
+            <a ng-href="#/overview" ><button class="btn btn-md btn-block" type="button">
+              Abbrechen
+            </button></a>
           </div>
       </div>
     </form>
