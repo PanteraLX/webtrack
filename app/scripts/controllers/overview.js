@@ -19,13 +19,10 @@ angular.module('webtrackApp')
       $scope.projects = projects;
     })
 
-    $scope.removeSingleProject = function removeSingleProject(row) {
+    $scope.removeSingleProject = function removeSingleProject(key) {
       var box = window.confirm("Wollen sie das Pojekt wirklich löschen?")
       if (box) {
-        var index = $scope.projects.indexOf(row);
-        if (index !== -1) {
-          $scope.projects.splice(index, 1);
-        }
+        projects.$remove(key);
       }
     };
 

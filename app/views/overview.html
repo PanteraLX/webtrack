@@ -27,19 +27,19 @@
     </tr>
   </thead>
   <tbody>
-    <tr st-select-row="project" st-select-mode="multiple" ng-repeat="project in projects">
+    <tr st-select-row="project" st-select-mode="multiple" ng-repeat="(key,project) in projects">
       <td>{{project.projectId}}</td>
       <td>{{project.projectName}}</td>
       <td>{{project.projectLeader}}</td>
       <td>{{project.projectLength}}</td>
       <td>{{project.employees}}</td>
       <td>
-        <button type="button" ng-click="editProject(project)" class="btn btn-sm btn-primary">
+        <button type="button" ng-click="editProject(key)" class="btn btn-sm btn-primary">
           <i class="glyphicon glyphicon-edit"></i>
         </button>
       </td>
       <td>
-        <button type="button" ng-click="removeSingleProject(project)" class="btn btn-sm btn-danger">
+        <button type="button" ng-click="removeSingleProject(key)" class="btn btn-sm btn-danger">
         <i class="glyphicon glyphicon-remove"></i>
         </button>
       </td>
