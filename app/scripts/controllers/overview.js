@@ -34,19 +34,19 @@ angular.module('webtrackApp')
       };
     }
 
-    $scope.rowCollection = [];
+    $scope.projects = [];
     for (var id = 1; id <= 20; id++) {
-      $scope.rowCollection.push(createRandomItem(id));
+      $scope.projects.push(createRandomItem(id));
     };
 
-    $scope.displayedCollection = [].concat($scope.rowCollection);
+    $scope.displayedCollection = [].concat($scope.projects);
 
     $scope.removeSingleProject = function removeSingleProject(row) {
       var box = window.confirm("Wollen sie das Pojekt wirklich löschen?")
       if (box) {
-        var index = $scope.rowCollection.indexOf(row);
+        var index = $scope.projects.indexOf(row);
         if (index !== -1) {
-          $scope.rowCollection.splice(index, 1);
+          $scope.projects.splice(index, 1);
         }
       }
     };
@@ -54,11 +54,11 @@ angular.module('webtrackApp')
     $scope.removeMultiProject = function removeMultiProject() {
       var box = window.confirm("Wollen sie diese Pojekte wirklich löschen?")
       if (box) {
-        for (id = 1; id <= $scope.rowCollection.length; id++ ) {
-          if($scope.rowCollection[id-1].isSelected) {
-            var index = $scope.rowCollection.indexOf(id);
+        for (id = 1; id <= $scope.projects.length; id++ ) {
+          if($scope.projects[id-1].isSelected) {
+            var index = $scope.projects.indexOf(id);
             if (index !== -1) {
-              $scope.rowCollection.splice(id, 1);
+              $scope.projects.splice(id, 1);
             }
             console.log(id);
           }

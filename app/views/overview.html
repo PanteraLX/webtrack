@@ -11,10 +11,10 @@
       Projekte löschen
     </button>
   </div>
-  <input class="col-md-offset-6 col-md-2" st-table="rowCollection" st-search="" class="form-control" placeholder="Suche" id="projectSearch" type="text"/>
+  <input class="col-md-offset-6 col-md-2" st-table="projects" st-search="" class="form-control" placeholder="Suche" id="projectSearch" type="text"/>
 </div>
 <br />
-<table st-table="rowCollection" class="table table-striped">
+<table st-table="projects" class="table table-striped">
   <thead>
     <tr>
       <th st-sort="projectId">ID</th>
@@ -27,19 +27,19 @@
     </tr>
   </thead>
   <tbody>
-    <tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in rowCollection">
-      <td>{{row.projectId}}</td>
-      <td>{{row.projectName}}</td>
-      <td>{{row.projectLeader}}</td>
-      <td>{{row.projectLength}}</td>
-      <td>{{row.employees}}</td>
+    <tr st-select-row="project" st-select-mode="multiple" ng-repeat="project in projects">
+      <td>{{project.projectId}}</td>
+      <td>{{project.projectName}}</td>
+      <td>{{project.projectLeader}}</td>
+      <td>{{project.projectLength}}</td>
+      <td>{{project.employees}}</td>
       <td>
-        <button type="button" ng-click="editProject(row)" class="btn btn-sm btn-primary">
+        <button type="button" ng-click="editProject(project)" class="btn btn-sm btn-primary">
           <i class="glyphicon glyphicon-edit"></i>
         </button>
       </td>
       <td>
-        <button type="button" ng-click="removeSingleProject(row)" class="btn btn-sm btn-danger">
+        <button type="button" ng-click="removeSingleProject(project)" class="btn btn-sm btn-danger">
         <i class="glyphicon glyphicon-remove"></i>
         </button>
       </td>
