@@ -8,38 +8,16 @@
  * Controller of the webtrackApp
  */
 angular.module('webtrackApp')
-  .controller('OverviewCtrl', ['$scope', '$location', function ($scope, $location) {
+  .controller('OverviewCtrl', ['$scope', '$location', '$firebaseArray', function ($scope, $location, $firebaseArray) {
 
-    var ref = new Firebase("https://webtrack.firebaseio.com/data_project");
+    var url = "https://webtrack.firebaseio.com/data_projects"
+    var ref = new Firebase(url);
+    var projects = $firebaseArray(ref);
 
-    //$scope.data = $firebaseObject(ref);
-    //console.log($scope.data);
-    var
-      projectList = ['Webtrack', 'IPA', 'EgoProjekt', 'Säich', 'Bier'],
-      leaderList = ['Heinzmann Samuel', 'Richter Stefanie', 'Daniel Völlmin', 'Lars Anliker', 'Stiicher'];
-
-    function createRandomItem(id) {
-      var
-        projectName = projectList[Math.floor(Math.random() * 5)],
-        projectLeader = leaderList[Math.floor(Math.random() * 5)],
-        projectLength = Math.floor(Math.random() * 100),
-        employees = Math.floor(Math.random() * 10);
-
-      return {
-        projectId: id,
-        projectName: projectName,
-        projectLeader: projectLeader,
-        projectLength: projectLength,
-        employees: employees
-      };
-    }
-
-    $scope.projects = [];
-    for (var id = 1; id <= 20; id++) {
-      $scope.projects.push(createRandomItem(id));
-    };
-
-    $scope.displayedCollection = [].concat($scope.projects);
+    $scope.projects = projects;
+    projects.$loaded().then(function() {
+      $scope.projects = projects;
+    })
 
     $scope.removeSingleProject = function removeSingleProject(row) {
       var box = window.confirm("Wollen sie das Pojekt wirklich löschen?")
@@ -54,7 +32,7 @@ angular.module('webtrackApp')
     $scope.removeMultiProject = function removeMultiProject() {
       var box = window.confirm("Wollen sie diese Pojekte wirklich löschen?")
       if (box) {
-        for (id = 1; id <= $scope.projects.length; id++ ) {
+        for (var id = 1; id <= $scope.projects.length; id++ ) {
           if($scope.projects[id-1].isSelected) {
             var index = $scope.projects.indexOf(id);
             if (index !== -1) {
