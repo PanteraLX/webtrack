@@ -25,9 +25,10 @@ angular.module('webtrackApp')
 
     $scope.register = function() {
       auth.$createUser({
-        email: user.email,
-        password: user.password
+        email: $scope.user.email,
+        password: $scope.user.password
       }).then(function(user){
+        $scope.login($scope.user);
         $location.path('/overview');
       })
     };
