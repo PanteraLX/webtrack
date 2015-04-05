@@ -18,7 +18,7 @@ angular.module('webtrackApp')
         password: $scope.user.password
       }).then(function(user) {
         $location.path('/overview');
-      }).catch(function(error){
+      }).catch(function(error) {
         $scope.message = error.message;
       });
 
