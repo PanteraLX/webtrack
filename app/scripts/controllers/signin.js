@@ -13,15 +13,23 @@ angular.module('webtrackApp')
     var auth = $firebaseAuth(ref);
 
     $scope.login = function() {
-      auth.$authWithPassword( {
+      auth.$authWithPassword({
         email: $scope.user.email,
         password: $scope.user.password
-      }).then(function(user) {
+      }).then(function (user) {
         $location.path('/overview');
-      }).catch(function(error) {
+      }).catch(function (error) {
         $scope.message = error.message;
       });
-
-
     };
+
+    $scope.register = function() {
+      auth.$createUser({
+        email: user.email,
+        password: user.password
+      }).then(function(user){
+        $location.path('/overview');
+      })
+    };
+
   });
