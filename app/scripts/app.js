@@ -56,6 +56,10 @@ angular
         templateUrl: 'views/register.html',
         controller: 'SigninCtrl'
       })
+      .when('/detailview', {
+        templateUrl: 'views/detailview.html',
+        controller: 'DetailviewCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
