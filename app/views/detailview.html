@@ -1,0 +1,55 @@
+<h2>Projekte</h2>
+<br />
+<div class="row">
+  <div class="col-md-4">
+    <a ng-href="#/add">
+      <button type="button" ng-click="newProject()" class="btn btn-success">
+        Neues Projekt
+      </button>
+    </a>
+    <button type="button" ng-click="removeMultiProject()" class="btn btn-danger">
+      Projekte löschen
+    </button>
+  </div>
+  <input class="col-md-offset-6 col-md-2" st-table="projects" st-search="" class="form-control" placeholder="Suche" id="projectSearch" type="text"/>
+</div>
+<br />
+<table st-safe-src="projects" st-table="projectsa" class="table table-striped">
+  <thead>
+  <tr>
+    <th st-sort="projectId">ID</th>
+    <th st-sort="projectName">Projektname</th>
+    <th st-sort="projectLeader">Projektleiter</th>
+    <th st-sort="projectLength">Projektdauer</th>
+    <th st-sort="employees">Mitarbeiter</th>
+    <th>Edit</th>
+    <th>Löschen</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr st-select-row="project" st-select-mode="multiple" ng-repeat="(key,project) in projects">
+    <td>{{project.projectId}}</td>
+    <td>{{project.projectName}}</td>
+    <td>{{project.projectLeader}}</td>
+    <td>{{project.projectLength}}</td>
+    <td>{{project.employees}}</td>
+    <td>
+      <button type="button" ng-click="editProject(key)" class="btn btn-sm btn-primary">
+        <i class="glyphicon glyphicon-edit"></i>
+      </button>
+    </td>
+    <td>
+      <button type="button" ng-click="removeSingleProject(key)" class="btn btn-sm btn-danger">
+        <i class="glyphicon glyphicon-remove"></i>
+      </button>
+    </td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="5" class="text-center">
+      <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+    </td>
+  </tr>
+  </tfoot>
+</table>
