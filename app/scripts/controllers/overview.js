@@ -12,7 +12,7 @@ angular.module('webtrackApp')
 
     var url = "https://webtrack.firebaseio.com/data_projects"
     var ref = new Firebase(url);
-    var projects = $firebaseArray(ref);
+    var projectdetails = $firebaseArray(ref);
 
     $scope.projects = projects;
     projects.$loaded().then(function() {
@@ -26,21 +26,6 @@ angular.module('webtrackApp')
       }
     };
 
-    $scope.removeMultiProject = function removeMultiProject() {
-      var box = window.confirm("Wollen sie diese Pojekte wirklich löschen?")
-      if (box) {
-        for (var id = 1; id <= $scope.projects.length; id++ ) {
-          if($scope.projects[id-1].isSelected) {
-            var index = $scope.projects.indexOf(id);
-            if (index !== -1) {
-              $scope.projects.splice(id, 1);
-            }
-            console.log(id);
-          }
-        }
-      }
-    };
-
     $scope.editProject = function editProject(key) {
       sharedProperties.setObject($scope.projects[key]);
       $location.path('/edit');
@@ -50,7 +35,7 @@ angular.module('webtrackApp')
       console.log('Bravo, dü chaisch super klicku')
     };
 
-    $scope.itemsByPage=10;
+    $scope.itemsByPage=50;
 
 
   }]);
