@@ -12,7 +12,7 @@ angular.module('webtrackApp')
 
     var url = "https://webtrack.firebaseio.com/data_projects"
     var ref = new Firebase(url);
-    var projectdetails = $firebaseArray(ref);
+    var projects = $firebaseArray(ref);
 
     $scope.projects = projects;
     projects.$loaded().then(function() {
