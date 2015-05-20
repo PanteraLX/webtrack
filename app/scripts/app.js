@@ -19,8 +19,7 @@ angular
     'ngSanitize',
     'ngTouch',
     'smart-table',
-    'firebase',
-    'webtrack-constants'
+    'firebase'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -59,6 +58,10 @@ angular
       .when('/detailview', {
         templateUrl: 'views/detailview.html',
         controller: 'DetailviewCtrl'
+      })
+      .when('/logout', {
+        templateUrl: 'views/logout.html',
+        controller: 'LogoutCtrl'
       })
       .otherwise({
         redirectTo: '/'
