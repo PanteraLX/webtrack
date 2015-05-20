@@ -8,7 +8,9 @@
  * Controller of the webtrackApp
  */
 angular.module('webtrackApp')
-  .controller('SigninCtrl', function ($scope, $firebaseAuth, $location) {
+  .controller('SigninCtrl', ['$scope', '$firebaseAuth', '$location', '$cookieStore',
+    function ($scope, $firebaseAuth, $location, $cookieStore) {
+
     var ref = new Firebase('https://webtrack.firebaseio.com/')
     var auth = $firebaseAuth(ref);
 
@@ -17,9 +19,11 @@ angular.module('webtrackApp')
         email: $scope.user.email,
         password: $scope.user.password
       }).then(function (user) {
+        $cookieStore.put("token", user.token)
+        $scope.message = user.token;
         $location.path('/overview');
       }).catch(function (error) {
-        $scope.message = error.message;
+        $scope.message = $scope.errorMessage(error.code);
       });
     };
 
@@ -33,4 +37,15 @@ angular.module('webtrackApp')
       })
     };
 
-  });
+    $scope.errorMessage = function(code) {
+      switch (code) {
+        case 'INVALID_PASSWORD':
+          return "Falsches Passwort";
+          break;
+        case 'INVALID_EMAIL':
+          return "Ungültige E-Mail-Adresse";
+          break;
+      }
+    }
+
+  }]);
