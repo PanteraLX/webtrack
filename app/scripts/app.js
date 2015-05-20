@@ -25,45 +25,56 @@ angular
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl',
+        requireLogin: false
       })
       .when('/about', {
         templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+        controller: 'AboutCtrl',
+        requireLogin: false
       })
       .when('/signin', {
         templateUrl: 'views/signin.html',
-        controller: 'SigninCtrl'
+        controller: 'SigninCtrl',
+        requireLogin: false
       })
       .when('/contact', {
         templateUrl: 'views/contact.html',
-        controller: 'ContactCtrl'
+        controller: 'ContactCtrl',
+        requireLogin: false
       })
       .when('/add', {
         templateUrl: 'views/add.html',
-        controller: 'AddCtrl'
+        controller: 'AddCtrl',
+        requireLogin: true
       })
       .when('/edit', {
         templateUrl: 'views/edit.html',
-        controller: 'EditCtrl'
+        controller: 'EditCtrl',
+        requireLogin: true
       })
       .when('/overview', {
         templateUrl: 'views/overview.html',
-        controller: 'OverviewCtrl'
+        controller: 'OverviewCtrl',
+        requireLogin: true
       })
       .when('/register', {
         templateUrl: 'views/register.html',
-        controller: 'SigninCtrl'
+        controller: 'SigninCtrl',
+        requireLogin: false
       })
       .when('/detailview', {
         templateUrl: 'views/detailview.html',
-        controller: 'DetailviewCtrl'
+        controller: 'DetailviewCtrl',
+        requireLogin: true
       })
       .when('/logout', {
         templateUrl: 'views/logout.html',
-        controller: 'LogoutCtrl'
+        controller: 'LogoutCtrl',
+        requireLogin: true
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/',
+        requireLogin: false
       });
   });
