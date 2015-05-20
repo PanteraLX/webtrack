@@ -4,30 +4,3 @@
     WebTrack: A web based application for project management
   </p>
 </div>
-
-<div class="row">
-  <div class="col col-md-12">
-    <form class="form-horizontal" ng-submit="login()" name="loginForm">
-      <h2 class="form-signin-heading">Bitte loggen Sie sich ein!</h2><br />
-      <div class="form-group">
-        <label class="control-label col-md-2" for="inputUsername">E-Mail</label>
-        <div class="col-md-8">
-          <input type="email" id="inputUsername" class="form-control col-md-4" placeholder="E-Mail"
-                 ng-required="true" autofocus ng-model="user.email">
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="control-label col-md-2" for="inputPassword">Password</label>
-        <div class="col-md-8">
-          <input type="password" id="inputPassword" class="form-control col-md-4" placeholder="Password"
-                 ng-required="true" ng-model="user.password">
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="col-md-offset-2 col-md-2">
-          <button class="btn btn-primary btn-block" type="submit" ng-disabled="loginForm.$invalid">Sign in</button>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
