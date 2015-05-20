@@ -28,6 +28,7 @@ angular.module('webtrackApp')
 
     $scope.editProject = function editProject(key) {
       sharedProperties.setObject($scope.projects[key]);
+      sharedProperties.setString(key);
       $location.path('/edit');
     };
 
