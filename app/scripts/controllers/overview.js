@@ -8,7 +8,8 @@
  * Controller of the webtrackApp
  */
 angular.module('webtrackApp')
-  .controller('OverviewCtrl', ['$scope', '$location', '$firebaseArray', 'sharedProperties', function ($scope, $location, $firebaseArray, sharedProperties) {
+  .controller('OverviewCtrl', ['$scope', '$location', '$firebaseArray', 'sharedProperties', '$cookieStore',
+    function ($scope, $location, $firebaseArray, sharedProperties, $cookieStore) {
 
     var url = "https://webtrack.firebaseio.com/data_projects"
     var ref = new Firebase(url);
@@ -18,6 +19,10 @@ angular.module('webtrackApp')
     projects.$loaded().then(function() {
       $scope.projects = projects;
     })
+
+    $scope.token = $cookieStore.get('token')
+
+    console.log($scope.token);
 
     $scope.removeSingleProject = function removeSingleProject(key) {
       var box = window.confirm("Wollen sie das Projekt wirklich löschen?")
@@ -36,7 +41,7 @@ angular.module('webtrackApp')
       console.log('Bravo, dü chaisch super klicku')
     };
 
-    $scope.itemsByPage=50;
+    $scope.itemsByPage=2;
 
 
   }]);
