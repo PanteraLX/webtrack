@@ -37,9 +37,12 @@ angular.module('webtrackApp')
       $location.path('/edit');
     };
 
-    $scope.newProject = function newProject(row) {
-      console.log('Bravo, dü chaisch super klicku')
+    $scope.showDetails = function showDetails(key) {
+      sharedProperties.setObject($scope.projects[key]);
+      sharedProperties.setString(key);
+      $location.path('/detailview');
     };
+
 
     $scope.itemsByPage=2;
 

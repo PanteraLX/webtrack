@@ -3,13 +3,13 @@
 <div class="row">
   <div class="col-md-4">
     <a ng-href="#/add">
-      <button type="button" ng-click="newProject()" class="btn btn-success">
+      <button type="button" ng-click="newProject()" class="btn">
         Neues Projekt
       </button>
     </a>
-    <button type="button" ng-click="removeMultiProject()" class="btn btn-danger">
+    <!--<button type="button" ng-click="removeMultiProject()" class="btn btn-danger">
       Projekte löschen
-    </button>
+    </button>-->
   </div>
   <input class="col-md-offset-6 col-md-2" st-table="projects" st-search="" class="form-control" placeholder="Suche" id="projectSearch" type="text"/>
 </div>
@@ -22,6 +22,7 @@
       <th st-sort="projectLeader">Projektleiter</th>
       <th st-sort="projectLength">Projektdauer</th>
       <th st-sort="employees">Mitarbeiter</th>
+      <th>Details</th>
       <th>Edit</th>
       <th>Löschen</th>
     </tr>
@@ -33,6 +34,11 @@
       <td>{{project.projectLeader}}</td>
       <td>{{project.projectLength}}</td>
       <td>{{project.employees}}</td>
+      <td>
+        <button type="button" ng-click="showDetails(key)" class="btn btn-sm">
+          <i class="glyphicon glyphicon-list"></i>
+        </button>
+      </td>
       <td>
         <button type="button" ng-click="editProject(key)" class="btn btn-sm btn-primary">
           <i class="glyphicon glyphicon-edit"></i>
