@@ -8,10 +8,8 @@
  * Controller of the webtrackApp
  */
 angular.module('webtrackApp')
-  .controller('LogoutCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('LogoutCtrl',['$scope', '$cookieStore', function ($scope, $cookieStore) {
+
+    $cookieStore.remove('token')
+
+  }]);
