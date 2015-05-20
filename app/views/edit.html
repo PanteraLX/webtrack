@@ -4,37 +4,36 @@
       <h2>Projekt bearbeiten</h2>
       <div class="form-group">
         <div class="col-md-offset-10 col-md-2">
-          <button class="btn btn-sm btn-block" type="button"><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span> Anhang</button>
-          <button class="btn btn-sm btn-block" type="button"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Löschen</button>
+          <button class="btn btn-sm btn-block" type="button" ng-click="removeSingleProject()"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Löschen</button>
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label col-md-2" for="inputProjectName" class="sr-only">Projektname</label>
+        <label class="control-label col-md-2" for="inputProjectName">Projektname</label>
         <div class="col-md-8">
-          <input type="text" id="inputProjectName" class="form-control" ng-required="true" value="{{projectToEdit.projectName}}">
+          <input type="text" id="inputProjectName" class="form-control" ng-required="true" ng-model="projectName"> <!--value="{{projectToEdit.projectName}}"-->
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label col-md-2" for="inputPL" class="sr-only">Projektleiter</label>
+        <label class="control-label col-md-2" for="inputPL">Projektleiter</label>
         <div class="col-md-8">
-          <input type="text" id="inputPL" class="form-control" ng-required="true"  value="{{projectToEdit.projectLeader}}">
+          <input type="text" id="inputPL" class="form-control" ng-required="true" ng-model="projectLeader"> <!--value="{{projectToEdit.projectLeader}}"-->
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label col-md-2" for="inputProjectDuration" class="sr-only">Projektdauer</label>
+        <label class="control-label col-md-2" for="inputProjectDuration">Projektdauer</label>
         <div class="col-md-8">
-          <input type="text" id="inputProjectDuration" class="form-control" ng-required="true"  value="{{projectToEdit.projectLength}}">
+          <input type="text" id="inputProjectDuration" class="form-control" ng-required="true" ng-model="projectLength"> <!--value="{{projectToEdit.projectLength}}"-->
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label col-md-2" for="inputProjectPerson" class="sr-only">Mitarbeiter</label>
+        <label class="control-label col-md-2" for="inputProjectPerson">Mitarbeiter</label>
         <div class="col-md-8">
-          <input type="text" id="inputProjectPerson" class="form-control" ng-required="true"  value="{{projectToEdit.employees}}">
+          <input type="text" id="inputProjectPerson" class="form-control" ng-required="true" ng-model="employees"> <!--value="{{projectToEdit.employees}}"-->
         </div>
       </div>
       <div class="form-group">
         <div class="col-md-offset-2 col-md-3">
-          <a ng-href="#/" ><button class="btn btn-md btn-primary btn-block" type="submit">Speichern</button></a>
+          <button class="btn btn-md btn-primary btn-block" type="submit">Speichern</button>
           <a ng-href="#/overview" ><button class="btn btn-md btn-block" type="button">Abbrechen</button></a>
         </div>
       </div>
