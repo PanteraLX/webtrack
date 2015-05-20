@@ -1,14 +1,28 @@
-<div class="jumbotron">
-  <form class="form-register" ng-submit="register()" novalidate name="registerForm">
-    <h2 class="form-register-heading">Registration</h2>
-    <label for="inputFirstname" class="sr-only">Firstname</label>
-    <input type="email" id="inputFirstname" class="form-control" placeholder="Firstname" ng-required="true" autofocus ng-model="user.firstname">
-    <label for="inputName" class="sr-only">Name</label>
-    <input type="email" id="inputName" class="form-control" placeholder="Name" ng-required="true" autofocus ng-model="user.name">
-    <label for="inputUsername" class="sr-only">E-Mail</label>
-    <input type="email" id="inputUsername" class="form-control" placeholder="E-Mail" ng-required="true" autofocus ng-model="user.email">
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" ng-required="true" ng-model="user.password">
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
-  </form>
+<div class="row">
+  <div class="col col-md-12">
+    <form class="form-horizontal" ng-submit="register()" novalidate name="registerForm">
+      <h2 class="form-signin-heading">Bitte registrieren Sie sich mit Ihrer E-Mail-Adresse!</h2><br />
+      <p>Das Passwort sollte 6 Zeichen umfassen</p><br />
+      <div class="form-group">
+        <label class="control-label col-md-2" for="inputUsername">E-Mail</label>
+        <div class="col-md-8">
+          <input type="email" id="inputUsername" class="form-control col-md-4" placeholder="E-Mail"
+                 ng-required="true" autofocus ng-model="user.email">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2" for="inputPassword">Password</label>
+        <div class="col-md-8">
+          <input type="password" id="inputPassword" class="form-control col-md-4" placeholder="Password"
+                 ng-required="true" ng-minlength="6" title="6 Zeichen mindestens" ng-model="user.password">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-offset-2 col-md-2">
+          <button class="btn btn-primary btn-block" type="submit" ng-disabled="registerForm.$invalid">Sign in</button>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
+
