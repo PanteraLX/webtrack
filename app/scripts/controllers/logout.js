@@ -11,5 +11,5 @@ angular.module('webtrackApp')
   .controller('LogoutCtrl',['$scope', '$cookieStore', function ($scope, $cookieStore) {
 
     $cookieStore.remove('token')
-
+    $cookieStore.remove('mail')
   }]);

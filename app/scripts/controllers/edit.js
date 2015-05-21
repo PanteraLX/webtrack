@@ -8,8 +8,11 @@
  * Controller of the webtrackApp
  */
 angular.module('webtrackApp')
-  .controller('EditCtrl', ['$scope', '$firebaseArray','sharedProperties','$location',
-    function ($scope, $firebaseArray, sharedProperties, $location) {
+  .controller('EditCtrl', ['$scope', '$firebaseArray','sharedProperties','$location', '$cookieStore',
+    function ($scope, $firebaseArray, sharedProperties, $location, $cookieStore) {
+
+    $scope.token = $cookieStore.get('token');
+    $scope.mail = $cookieStore.get('mail');
 
     $scope.projectToEdit = sharedProperties.getObject();
     $scope.projectKey = sharedProperties.getString();
@@ -21,7 +24,7 @@ angular.module('webtrackApp')
     $scope.employees = $scope.projectToEdit.employees;
 
 
-    var url = "https://webtrack.firebaseio.com/data_projects"
+    var url = "https://webtrack.firebaseio.com/data_projects"+$scope.mail;
     var ref = new Firebase(url);
     var projects = $firebaseArray(ref);
 

@@ -11,7 +11,10 @@ angular.module('webtrackApp')
   .controller('OverviewCtrl', ['$scope', '$location', '$firebaseArray', 'sharedProperties', '$cookieStore',
     function ($scope, $location, $firebaseArray, sharedProperties, $cookieStore) {
 
-    var url = "https://webtrack.firebaseio.com/data_projects"
+    $scope.token = $cookieStore.get('token');
+    $scope.mail = $cookieStore.get('mail');
+
+    var url = "https://webtrack.firebaseio.com/data_projects" + $scope.mail;
     var ref = new Firebase(url);
     var projects = $firebaseArray(ref);
 
@@ -19,10 +22,6 @@ angular.module('webtrackApp')
     projects.$loaded().then(function() {
       $scope.projects = projects;
     })
-
-    $scope.token = $cookieStore.get('token')
-
-    console.log($scope.token);
 
     $scope.removeSingleProject = function removeSingleProject(key) {
       var box = window.confirm("Wollen sie das Projekt wirklich löschen?")

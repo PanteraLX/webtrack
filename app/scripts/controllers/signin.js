@@ -20,6 +20,7 @@ angular.module('webtrackApp')
         password: $scope.user.password
       }).then(function (user) {
         $cookieStore.put("token", user.token)
+        $cookieStore.put("mail", user.password.email);
         $scope.message = user.token;
         $location.path('/overview');
       }).catch(function (error) {
@@ -32,8 +33,8 @@ angular.module('webtrackApp')
         email: $scope.user.email,
         password: $scope.user.password
       }).then(function(user){
-        $scope.login($scope.user);
-        $location.path('/overview');
+        //$scope.login($scope.user);
+        $location.path('/signin');
       })
     };
 
