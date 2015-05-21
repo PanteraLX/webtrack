@@ -91,8 +91,7 @@ angular.module('webtrackApp')
         startingDay: 1
       };
 
-      $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-      $scope.format = $scope.formats[0];
+      $scope.format = 'dd.MM.yy';
 
       var tomorrow = new Date();
       tomorrow.setDate(tomorrow.getDate() + 1);
