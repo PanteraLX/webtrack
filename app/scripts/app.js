@@ -22,7 +22,7 @@ angular
     'firebase',
     'ui.bootstrap',
     'angular-md5',
-    'ng-table'
+    'ngTable'
   ])
   .config(function ($routeProvider) {
     $routeProvider
