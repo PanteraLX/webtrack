@@ -19,7 +19,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'smart-table',
-    'firebase'
+    'firebase',
+    'ui.bootstrap'
   ])
   .config(function ($routeProvider) {
     $routeProvider
