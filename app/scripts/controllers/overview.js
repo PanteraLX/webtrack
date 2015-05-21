@@ -8,8 +8,8 @@
  * Controller of the webtrackApp
  */
 angular.module('webtrackApp')
-  .controller('OverviewCtrl', ['$scope', '$location', '$firebaseArray', 'sharedProperties', '$cookieStore', 'md5',
-    function ($scope, $location, $firebaseArray, sharedProperties, $cookieStore, md5) {
+  .controller('OverviewCtrl', ['$scope', '$location', '$firebaseArray', 'sharedProperties', '$cookieStore', 'md5', 'ngTableParams', '$filter',
+    function ($scope, $location, $firebaseArray, sharedProperties, $cookieStore, md5, ngTableParams, $filter) {
 
     $scope.token = $cookieStore.get('token');
     $scope.mail = $cookieStore.get('mail');
@@ -21,7 +21,7 @@ angular.module('webtrackApp')
     $scope.projects = projects;
     projects.$loaded().then(function() {
       $scope.projects = projects;
-    })
+    });
 
     $scope.removeSingleProject = function removeSingleProject(key) {
       var box = window.confirm("Wollen sie das Projekt wirklich löschen?")
@@ -45,5 +45,21 @@ angular.module('webtrackApp')
 
     $scope.itemsByPage=2;
 
+    $scope.tableParams = new ngTableParams({
+      page: 1,
+      count: 3
+    }, {
+      total: $scope.projects.length, // length of data
+      getData: function($defer, params) {
+        var orderedData = params.filter() ?
+          $filter('filter')($scope.projects, params.filter()) :
+          $scope.projects;
+
+        //$scope.users = orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count());
+
+        //params.total(orderedData.length); // set total for recalc pagination
+        //$defer.resolve($scope.users);
+      }
+    });
 
   }]);
