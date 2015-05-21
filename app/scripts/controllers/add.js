@@ -8,13 +8,13 @@
  * Controller of the webtrackApp
  */
 angular.module('webtrackApp')
-  .controller('AddCtrl', ['$scope', '$firebaseArray', '$location', '$cookieStore',
-    function ($scope, $firebaseArray, $location, $cookieStore) {
+  .controller('AddCtrl', ['$scope', '$firebaseArray', '$location', '$cookieStore', 'md5',
+    function ($scope, $firebaseArray, $location, $cookieStore, md5) {
 
     $scope.token = $cookieStore.get('token');
     $scope.mail = $cookieStore.get('mail');
 
-    var url = "https://webtrack.firebaseio.com/data_projects" + $scope.mail;
+    var url = "https://webtrack.firebaseio.com/data_projects/" +  md5.createHash($scope.mail);
     var ref = new Firebase(url);
     var projects = $firebaseArray(ref);
 
