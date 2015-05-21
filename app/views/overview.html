@@ -20,7 +20,8 @@
       <th st-sort="projectId">ID</th>
       <th st-sort="projectName">Projektname</th>
       <th st-sort="projectLeader">Projektleiter</th>
-      <th st-sort="projectLength">Projektdauer</th>
+      <th st-sort="projectStart">Projektstart</th>
+      <th st-sort="projectEnd">Projektende</th>
       <th st-sort="employees">Mitarbeiter</th>
       <th>Details</th>
       <th>Edit</th>
@@ -32,7 +33,8 @@
       <td>{{project.projectId}}</td>
       <td>{{project.projectName}}</td>
       <td>{{project.projectLeader}}</td>
-      <td>{{project.projectLength}}</td>
+      <td>{{project.projectStart | date: 'dd.MM.yyyy' }}</td>
+      <td>{{project.projectEnd | date: 'dd.MM.yyyy'}}</td>
       <td>{{project.employees}}</td>
       <td>
         <button type="button" ng-click="showDetails(key)" class="btn btn-sm">

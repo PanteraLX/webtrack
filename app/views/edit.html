@@ -20,21 +20,49 @@
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label col-md-2" for="inputProjectDuration">Projektdauer</label>
-        <div class="col-md-8">
-          <input type="text" id="inputProjectDuration" class="form-control" ng-required="true" ng-model="projectLength"> <!--value="{{projectToEdit.projectLength}}"-->
-        </div>
-      </div>
-      <div class="form-group">
         <label class="control-label col-md-2" for="inputProjectPerson">Mitarbeiter</label>
         <div class="col-md-8">
           <input type="text" id="inputProjectPerson" class="form-control" ng-required="true" ng-model="employees"> <!--value="{{projectToEdit.employees}}"-->
         </div>
       </div>
       <div class="form-group">
-        <div class="col-md-offset-2 col-md-3">
-          <button class="btn btn-md btn-primary btn-block" type="submit">Speichern</button>
-          <a ng-href="#/overview" ><button class="btn btn-md btn-block" type="button">Abbrechen</button></a>
+        <label class="control-label col-md-2" for="inputProjectStart" >Projektstart</label>
+        <div class="col-md-4">
+          <p class="input-group">
+            <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="projectStart" id="inputProjectStart"
+                   is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close">
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default" ng-click="openStart($event)">
+                <i class="glyphicon glyphicon-calendar"></i>
+              </button>
+            </span>
+          </p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2" for="inputProjectEnd" >Projektende</label>
+        <div class="col-md-4">
+          <p class="input-group">
+            <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="projectEnd" id="inputProjectEnd"
+                   is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close">
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default" ng-click="openEnd($event)">
+                <i class="glyphicon glyphicon-calendar"></i>
+              </button>
+            </span>
+          </p>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-offset-2 col-md-2">
+          <button class="btn btn-md btn-primary btn-block" type="submit" ng-disabled="AddingForm.$invalid">
+            Speichern
+          </button>
+        </div>
+        <div class="col-md-2">
+          <a ng-href="#/overview" ><button class="btn btn-md btn-block" type="button">
+            Abbrechen
+          </button></a>
         </div>
       </div>
     </form>
