@@ -20,7 +20,8 @@ angular
     'ngTouch',
     'smart-table',
     'firebase',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'angular-md5',
   ])
   .config(function ($routeProvider) {
     $routeProvider
