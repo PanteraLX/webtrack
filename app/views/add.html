@@ -25,7 +25,7 @@
         <div class="col-md-4">
           <p class="input-group">
             <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="projectStart" id="inputProjectStart"
-                   is-open="openedStart" datepicker-options="dateOptions" min-date="date()"
+                   is-open="openedStart" datepicker-options="dateOptions" min-date="date()" readonly
                    ng-required="true" close-text="Close" format-month="MM" format-day-title="MM.yyyy">
             <span class="input-group-btn">
               <button type="button" class="btn btn-default" ng-click="open($event,'openedStart')">
@@ -40,7 +40,7 @@
         <div class="col-md-4">
           <p class="input-group">
             <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="projectEnd" id="inputProjectEnd"
-                   is-open="openedEnd" datepicker-options="dateOptions" min-date="{{ projectStart }}"
+                   is-open="openedEnd" datepicker-options="dateOptions" min-date="{{ projectStart }}" readonly
                    ng-required="true" close-text="Close" format-month="MM" format-day-title="MM.yyyy">
             <span class="input-group-btn">
               <button type="button" class="btn btn-default" ng-click="open($event,'openedEnd')">
