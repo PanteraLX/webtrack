@@ -8,10 +8,10 @@
  * Controller of the webtrackApp
  */
 angular.module('webtrackApp')
-  .controller('SigninCtrl', ['$scope', '$firebaseAuth', '$location', '$cookieStore',
-    function ($scope, $firebaseAuth, $location, $cookieStore) {
+  .controller('SigninCtrl', ['$scope', '$firebaseAuth', '$location', '$cookieStore','$rootScope',
+    function ($scope, $firebaseAuth, $location, $cookieStore, $rootScope) {
 
-    var ref = new Firebase('https://webtrack.firebaseio.com/')
+    var ref = new Firebase('https://webtrack.firebaseio.com/');
     var auth = $firebaseAuth(ref);
 
     $scope.login = function() {
@@ -19,9 +19,10 @@ angular.module('webtrackApp')
         email: $scope.user.email,
         password: $scope.user.password
       }).then(function (user) {
-        $cookieStore.put("token", user.token)
+        $cookieStore.put("token", user.token);
         $cookieStore.put("mail", user.password.email);
         $scope.message = user.token;
+        $rootScope.userIsAuthenticated = true;
         $location.path('/overview');
       }).catch(function (error) {
         $scope.message = $scope.errorMessage(error.code);
@@ -32,8 +33,7 @@ angular.module('webtrackApp')
       auth.$createUser({
         email: $scope.user.email,
         password: $scope.user.password
-      }).then(function(user){
-        //$scope.login($scope.user);
+      }).then(function(){
         $location.path('/signin');
       })
     };

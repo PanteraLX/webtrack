@@ -9,13 +9,13 @@
  */
 angular.module('webtrackApp')
   .service('SessionService', function () {
-    var userIsAuthenticated = false
+    $rootScope.userIsAuthenticated = false
 
     this.setUserauthenticated = function(value) {
-      userIsAuthenticated = value;
+      $rootScope.userIsAuthenticated = value;
     }
 
     this.getUserauthenticated = function() {
-      return userIsAuthenticated
+      return $rootScope.userIsAuthenticated
     }
   });
