@@ -44,8 +44,8 @@ angular.module('webtrackApp')
       var box = window.confirm("Wollen sie das Projekt wirklich löschen?");
       if (box) {
         $scope.projects.$remove($scope.projectKey);
+        $location.path('/overview');
       }
-      $location.path('/overview');
     };
 
     $scope.open = function($event,opened) {

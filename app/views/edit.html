@@ -3,8 +3,9 @@
     <form class="form-horizontal" ng-submit="editProject()" novalidate name="EditForm">
       <h2>Projekt bearbeiten</h2>
       <div class="form-group">
-        <div class="col-md-offset-10 col-md-2">
-          <button class="btn btn-sm btn-block" type="button" ng-click="removeSingleProject()"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Löschen</button>
+        <label class="control-label col-md-2" for="inputProjectId">Projekt-ID</label>
+        <div class="col-md-4">
+          <input type="text" id="inputProjectId" class="form-control" readonly ng-required="true" ng-model="projectKey">
         </div>
       </div>
       <div class="form-group">
@@ -59,6 +60,11 @@
         <div class="col-md-offset-2 col-md-2">
           <button class="btn btn-md btn-primary btn-block" type="submit" ng-disabled="EditForm.$invalid">
             Speichern
+          </button>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-md btn-block btn-danger" type="button" ng-click="removeSingleProject()">
+            Löschen
           </button>
         </div>
         <div class="col-md-2">
