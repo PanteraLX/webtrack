@@ -24,26 +24,21 @@ angular.module('webtrackApp')
     });
 
     $scope.removeSingleProject = function removeSingleProject(key) {
-      var box = window.confirm("Wollen sie das Projekt wirklich löschen?")
+      var box = window.confirm("Wollen sie das Projekt wirklich löschen?");
       if (box) {
         projects.$remove(key);
       }
     };
 
     $scope.editProject = function editProject(key) {
-      sharedProperties.setObject($scope.projects[key]);
       sharedProperties.setString(key);
       $location.path('/edit');
     };
 
     $scope.showDetails = function showDetails(key) {
-      sharedProperties.setObject($scope.projects[key]);
       sharedProperties.setString(key);
       $location.path('/detailview');
     };
-
-
-    $scope.itemsByPage=2;
 
     $scope.tableParams = new ngTableParams({
       page: 1,
