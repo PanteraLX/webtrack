@@ -24,8 +24,8 @@ angular.module('webtrackApp')
       projects.$add({
         projectName: $scope.projectName,
         projectLeader: $scope.projectLeader,
-        projectStart: $scope.projectStart.toJSON(),
-        projectEnd: $scope.projectEnd.toJSON(),
+        projectStart: Date.parse($scope.projectStart),
+        projectEnd: Date.parse($scope.projectEnd),
         employees: $scope.employees,
         created: Firebase.ServerValue.TIMESTAMP
       }).then( function () {

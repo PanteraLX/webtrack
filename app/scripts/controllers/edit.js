@@ -20,7 +20,6 @@ angular.module('webtrackApp')
     var ref = new Firebase(url);
     var projects = $firebaseArray(ref);
 
-
     projects.$loaded()
       .then(function() {
         $scope.project = projects[$scope.projectKey];
@@ -28,10 +27,12 @@ angular.module('webtrackApp')
 
     $scope.editProject = function() {
 
-      //$scope.project.projectEnd = $scope.checkJSON($scope.project.projectEnd);
-      //$scope.project.projectStart = $scope.checkJSON($scope.project.projectStart);
-      console.log(JSON.parse('hallo'));
-      console.log($scope.project.projectEnd.isJSON());
+      if (angular.isDate($scope.project.projectEnd)) {
+        $scope.project.projectEnd = Date.parse($scope.project.projectEnd);
+      }
+      if (angular.isDate($scope.project.projectStart)) {
+        $scope.project.projectStart = Date.parse($scope.project.projectStart);
+      }
       projects.$save($scope.projectKey)
         .then( function () {
         $location.path('/overview');
