@@ -14,7 +14,7 @@
 <table ng-table="tableParams" show-filter="true" class="table">
   <tr ng-repeat="(key,project) in projects">
     <td data-title="'ID'" sortable="'projectId'">
-      <span>{{project.projectId}}</span>
+      <span>{{key}}</span>
     </td>
     <td data-title="'Projektname'" sortable="'projectName'" filter="{ 'projectName': 'text'}">
       <span>{{project.projectName}}</span>
