@@ -4,8 +4,19 @@
       <h2>Projekt bearbeiten</h2>
       <div class="form-group">
         <label class="control-label col-md-2" for="inputProjectId">Projekt-ID</label>
-        <div class="col-md-4">
+        <div class="col-md-1">
           <input type="text" id="inputProjectId" class="form-control" readonly ng-required="true" ng-model="projectKey">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2" for="inputCreated">Erfasst am</label>
+        <div class="col-md-3">
+          <input type="" id="inputCreated" class="form-control" value="{{ project.created | date: 'dd.MM.yyyy HH:mm'}}" readonly>
+        </div>
+
+        <label class="control-label col-md-2" for="inputUpdated">Aktualisiert am</label>
+        <div class="col-md-3">
+          <input type="" id="inputUpdated" class="form-control" value="{{ project.updatet | date: 'dd.MM.yyyy HH:mm'}}" readonly>
         </div>
       </div>
       <div class="form-group">
@@ -28,7 +39,7 @@
       </div>
       <div class="form-group">
         <label class="control-label col-md-2" for="inputProjectStart" >Projektstart</label>
-        <div class="col-md-4">
+        <div class="col-md-3">
           <p class="input-group">
             <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="project.projectStart" id="inputProjectStart"
                    is-open="openedStart" datepicker-options="dateOptions" readonly
@@ -43,7 +54,7 @@
       </div>
       <div class="form-group">
         <label class="control-label col-md-2" for="inputProjectEnd" >Projektende</label>
-        <div class="col-md-4">
+        <div class="col-md-3">
           <p class="input-group">
             <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="project.projectEnd" id="inputProjectEnd"
                    is-open="openedEnd" datepicker-options="dateOptions" readonly
