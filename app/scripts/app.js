@@ -76,6 +76,11 @@ angular
         controller: 'LogoutCtrl',
         requireLogin: true
       })
+      .when('/navbar', {
+        templateUrl: 'partials/navbar.html',
+        controller: 'NavbarCtrl',
+        requireLogin: true
+      })
       .otherwise({
         redirectTo: '/',
         requireLogin: false
