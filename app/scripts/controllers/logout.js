@@ -8,8 +8,13 @@
  * Controller of the webtrackApp
  */
 angular.module('webtrackApp')
-  .controller('LogoutCtrl',['$scope', '$cookieStore', function ($scope, $cookieStore) {
+  .controller('LogoutCtrl',['$scope', '$cookieStore','$rootScope', '$location',
+    function ($scope, $cookieStore,$rootScope,$location) {
 
-    $cookieStore.remove('token')
-    $cookieStore.remove('mail')
+    $rootScope.userIsAuthenticated = false;
+    $cookieStore.remove('token');
+    $cookieStore.remove('mail');
+
+    $location.path('/main');
+
   }]);
