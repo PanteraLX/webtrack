@@ -16,7 +16,7 @@ angular.module('webtrackApp')
 
     $scope.projectdetails = projectdetails;
 
-    $scope.addState = function() {
+    $scope.addState = function () {
       projectdetails.$add({
         projectName: $scope.projectName,
         employees: $scope.employees,
@@ -25,7 +25,7 @@ angular.module('webtrackApp')
         lastChange: $scope.lastChange,
 
         date: Firebase.ServerValue.TIMESTAMP
-      }).then( function () {
+      }).then(function () {
         $location.path('/detailview');
       })
     }

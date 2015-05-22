@@ -2,25 +2,32 @@
   <div class="col col-md-12">
     <form class="form-horizontal" ng-submit="editProject()" novalidate name="EditForm">
       <h2>Projektdetails</h2>
+
       <div class="form-group">
         <label class="control-label col-md-2" for="inputProjectId">Projekt-ID</label>
+
         <div class="col-md-1">
           <input type="text" id="inputProjectId" class="form-control" readonly ng-required="true" ng-model="projectKey">
         </div>
       </div>
       <div class="form-group">
         <label class="control-label col-md-2" for="inputCreated">Erfasst am</label>
+
         <div class="col-md-3">
-          <input type="" id="inputCreated" class="form-control" value="{{ project.created | date: 'dd.MM.yyyy HH:mm'}}" readonly>
+          <input type="" id="inputCreated" class="form-control" value="{{ project.created | date: 'dd.MM.yyyy HH:mm'}}"
+                 readonly>
         </div>
 
         <label class="control-label col-md-2" for="inputUpdated">Aktualisiert am</label>
+
         <div class="col-md-3">
-          <input type="" id="inputUpdated" class="form-control" value="{{ project.updated | date: 'dd.MM.yyyy HH:mm'}}" readonly>
+          <input type="" id="inputUpdated" class="form-control" value="{{ project.updated | date: 'dd.MM.yyyy HH:mm'}}"
+                 readonly>
         </div>
       </div>
       <div class="form-group">
         <label class="control-label col-md-2" for="inputProjectName">Projektname</label>
+
         <div class="col-md-8">
           <p class="input-group">
             <input type="text" id="inputProjectName" class="form-control" ng-required="true"
@@ -35,6 +42,7 @@
       </div>
       <div class="form-group">
         <label class="control-label col-md-2" for="inputPL">Projektleiter</label>
+
         <div class="col-md-8">
           <p class="input-group">
             <input type="text" id="inputPL" class="form-control" ng-required="true"
@@ -49,6 +57,7 @@
       </div>
       <div class="form-group">
         <label class="control-label col-md-2" for="inputProjectPerson">Mitarbeiter</label>
+
         <div class="col-md-8">
           <p class="input-group">
             <input type="text" id="inputProjectPerson" class="form-control" ng-required="true"
@@ -62,10 +71,12 @@
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label col-md-2" for="inputProjectStart" >Projektstart</label>
+        <label class="control-label col-md-2" for="inputProjectStart">Projektstart</label>
+
         <div class="col-md-3">
           <p class="input-group">
-            <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="project.projectStart" id="inputProjectStart"
+            <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="project.projectStart"
+                   id="inputProjectStart"
                    is-open="openedStart" datepicker-options="dateOptions" readonly
                    ng-required="true" close-text="Close" format-month="MM" format-day-title="MM.yyyy">
             <span class="input-group-btn">
@@ -77,10 +88,12 @@
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label col-md-2" for="inputProjectEnd" >Projektende</label>
+        <label class="control-label col-md-2" for="inputProjectEnd">Projektende</label>
+
         <div class="col-md-3">
           <p class="input-group">
-            <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="project.projectEnd" id="inputProjectEnd"
+            <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="project.projectEnd"
+                   id="inputProjectEnd"
                    is-open="openedEnd" datepicker-options="dateOptions" readonly
                    ng-required="true" close-text="Close" format-month="MM" format-day-title="MM.yyyy">
             <span class="input-group-btn">
@@ -103,9 +116,11 @@
           </button>
         </div>
         <div class="col-md-2">
-          <a ng-href="#/overview" ><button class="btn btn-md btn-block" type="button">
-            Abbrechen
-          </button></a>
+          <a ng-href="#/overview">
+            <button class="btn btn-md btn-block" type="button">
+              Abbrechen
+            </button>
+          </a>
         </div>
       </div>
     </form>

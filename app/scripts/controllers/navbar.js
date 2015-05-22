@@ -8,11 +8,11 @@
  * Controller of the webtrackApp
  */
 angular.module('webtrackApp')
-  .controller('NavbarCtrl', ['$scope', '$cookieStore', '$rootScope','$route',
-  function ($scope, $cookieStore, $rootScope, $route) {
-    $scope.authenticated = $rootScope.userIsAuthenticated;
-    console.log($scope.authenticated)
-    $scope.userMail = $scope.mail = $cookieStore.get('mail');
-    console.log($scope.userMail)
-    $route.reload()
-  }]);
+  .controller('NavbarCtrl', ['$scope', '$cookieStore', '$rootScope', '$route',
+    function ($scope, $cookieStore, $rootScope, $route) {
+      $scope.authenticated = $rootScope.userIsAuthenticated;
+
+      $scope.userMail = $scope.mail = $cookieStore.get('mail');
+
+      $route.reload()
+    }]);

@@ -8,45 +8,45 @@
  * Controller of the webtrackApp
  */
 angular.module('webtrackApp')
-  .controller('SigninCtrl', ['$scope', '$firebaseAuth', '$location', '$cookieStore','$rootScope',
+  .controller('SigninCtrl', ['$scope', '$firebaseAuth', '$location', '$cookieStore', '$rootScope',
     function ($scope, $firebaseAuth, $location, $cookieStore, $rootScope) {
 
-    var ref = new Firebase('https://webtrack.firebaseio.com/');
-    var auth = $firebaseAuth(ref);
+      var ref = new Firebase('https://webtrack.firebaseio.com/');
+      var auth = $firebaseAuth(ref);
 
-    $scope.login = function() {
-      auth.$authWithPassword({
-        email: $scope.user.email,
-        password: $scope.user.password
-      }).then(function (user) {
-        $cookieStore.put("token", user.token);
-        $cookieStore.put("mail", user.password.email);
-        $scope.message = user.token;
-        $rootScope.userIsAuthenticated = true;
-        $location.path('/overview');
-      }).catch(function (error) {
-        $scope.message = $scope.errorMessage(error.code);
-      });
-    };
+      $scope.login = function () {
+        auth.$authWithPassword({
+          email: $scope.user.email,
+          password: $scope.user.password
+        }).then(function (user) {
+          $cookieStore.put("token", user.token);
+          $cookieStore.put("mail", user.password.email);
+          $scope.message = user.token;
+          $rootScope.userIsAuthenticated = true;
+          $location.path('/overview');
+        }).catch(function (error) {
+          $scope.message = $scope.errorMessage(error.code);
+        });
+      };
 
-    $scope.register = function() {
-      auth.$createUser({
-        email: $scope.user.email,
-        password: $scope.user.password
-      }).then(function(){
-        $location.path('/signin');
-      })
-    };
+      $scope.register = function () {
+        auth.$createUser({
+          email: $scope.user.email,
+          password: $scope.user.password
+        }).then(function () {
+          $location.path('/signin');
+        })
+      };
 
-    $scope.errorMessage = function(code) {
-      switch (code) {
-        case 'INVALID_PASSWORD':
-          return "Falsches Passwort";
-          break;
-        case 'INVALID_EMAIL':
-          return "Ungültige E-Mail-Adresse";
-          break;
+      $scope.errorMessage = function (code) {
+        switch (code) {
+          case 'INVALID_PASSWORD':
+            return "Falsches Passwort";
+            break;
+          case 'INVALID_EMAIL':
+            return "Ungültige E-Mail-Adresse";
+            break;
+        }
       }
-    }
 
-  }]);
+    }]);
