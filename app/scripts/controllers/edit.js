@@ -13,8 +13,7 @@ angular.module('webtrackApp')
 
     $scope.token = $cookieStore.get('token');
     $scope.mail = $cookieStore.get('mail');
-
-    $scope.projectKey = sharedProperties.getString();
+    $scope.projectKey = $cookieStore.get('projectKey');
 
     var url = "https://webtrack.firebaseio.com/data_projects/" + md5.createHash($scope.mail);
     var ref = new Firebase(url);

@@ -30,19 +30,21 @@ angular.module('webtrackApp')
       }
     };
 
-    $scope.editProject = function editProject(key) {
-      sharedProperties.setString(key);
+    $scope.editProject = function editProject($key) {
+      $cookieStore.put('projectKey', $key)
+      sharedProperties.setString($key);
       $location.path('/edit');
     };
 
-    $scope.showDetails = function showDetails(key) {
-      sharedProperties.setString(key);
+    $scope.showDetails = function showDetails($key) {
+      $cookieStore.put('projectKey', $key)
+      sharedProperties.setString($key);
       $location.path('/detailview');
     };
 
     $scope.tableParams = new ngTableParams({
       page: 1,
-      count: 3
+      count: 5
     }, {
       total: $scope.projects.length, // length of data
       getData: function($defer, params) {
