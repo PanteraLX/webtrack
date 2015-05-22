@@ -1,7 +1,7 @@
 <div class="inhalt row">
   <div class="col col-md-12">
     <form class="form-horizontal" ng-submit="editProject()" novalidate name="EditForm">
-      <h2>Projekt bearbeiten</h2>
+      <h2>Projektdetails</h2>
       <div class="form-group">
         <label class="control-label col-md-2" for="inputProjectId">Projekt-ID</label>
         <div class="col-md-1">
@@ -22,19 +22,43 @@
       <div class="form-group">
         <label class="control-label col-md-2" for="inputProjectName">Projektname</label>
         <div class="col-md-8">
-          <input type="text" id="inputProjectName" class="form-control" ng-required="true" ng-model="project.projectName">
+          <p class="input-group">
+            <input type="text" id="inputProjectName" class="form-control" ng-required="true"
+                   ng-model="project.projectName" ng-readonly="NameEditable">
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default" ng-click="toggleNameReadonly()">
+                <i class="glyphicon glyphicon-pencil"></i>
+              </button>
+            </span>
+          </p>
         </div>
       </div>
       <div class="form-group">
         <label class="control-label col-md-2" for="inputPL">Projektleiter</label>
         <div class="col-md-8">
-          <input type="text" id="inputPL" class="form-control" ng-required="true" ng-model="project.projectLeader">
+          <p class="input-group">
+            <input type="text" id="inputPL" class="form-control" ng-required="true"
+                   ng-model="project.projectLeader" ng-readonly="PlEditable">
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default" ng-click="togglePlReadonly()">
+                <i class="glyphicon glyphicon-pencil"></i>
+              </button>
+            </span>
+          </p>
         </div>
       </div>
       <div class="form-group">
         <label class="control-label col-md-2" for="inputProjectPerson">Mitarbeiter</label>
         <div class="col-md-8">
-          <input type="text" id="inputProjectPerson" class="form-control" ng-required="true" ng-model="project.employees">
+          <p class="input-group">
+            <input type="text" id="inputProjectPerson" class="form-control" ng-required="true"
+                   ng-model="project.employees" ng-readonly="EmplEditable">
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default" ng-click="toggleEmpReadonly()">
+                <i class="glyphicon glyphicon-pencil"></i>
+              </button>
+            </span>
+          </p>
         </div>
       </div>
       <div class="form-group">

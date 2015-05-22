@@ -14,6 +14,9 @@ angular.module('webtrackApp')
     $scope.token = $cookieStore.get('token');
     $scope.mail = $cookieStore.get('mail');
     $scope.projectKey = $cookieStore.get('projectKey');
+    $scope.PlEditable = true;
+    $scope.EmplEditable = true;
+    $scope.NameEditable = true;
 
     var url = "https://webtrack.firebaseio.com/data_projects/" + md5.createHash($scope.mail);
     var ref = new Firebase(url);
@@ -67,5 +70,29 @@ angular.module('webtrackApp')
         return str.toJSON();
       }
       return str;
+    }
+
+    $scope.togglePlReadonly = function () {
+      if ($scope.PlEditable) {
+        $scope.PlEditable = false;
+      } else {
+        $scope.PlEditable = true;
+      }
+    }
+
+    $scope.toggleNameReadonly = function () {
+      if ($scope.NameEditable) {
+        $scope.NameEditable = false;
+      } else {
+        $scope.NameEditable = true;
+      }
+    }
+
+    $scope.toggleEmpReadonly = function () {
+      if ($scope.EmplEditable) {
+        $scope.EmplEditable = false;
+      } else {
+        $scope.EmplEditable = true;
+      }
     }
   }]);
