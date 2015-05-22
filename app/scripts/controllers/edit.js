@@ -32,7 +32,7 @@ angular.module('webtrackApp')
       if (angular.isDate($scope.project.projectStart)) {
         $scope.project.projectStart = Date.parse($scope.project.projectStart);
       }
-      $scope.project.updatet = Firebase.ServerValue.TIMESTAMP;
+      $scope.project.updated = Firebase.ServerValue.TIMESTAMP;
       projects.$save($scope.projectKey)
         .then( function () {
         $location.path('/overview');
