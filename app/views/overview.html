@@ -16,7 +16,7 @@
   <br/>
 
   <table ng-table="tableParams" show-filter="true" class="table">
-    <tr ng-repeat="(key,project) in projects">
+    <tr ng-repeat="(key,project) in projects" ng-click="editProject(key)">
       <td data-title="'ID'">
         <span>{{key}}</span>
       </td>
@@ -34,16 +34,6 @@
       </td>
       <td data-title="'Projektende'">
         <span>{{project.projectEnd | date: 'dd.MM.yyyy'}}</span>
-      </td>
-      <!--<td data-title="'Details'">
-        <button type="button" ng-click="showDetails(key)" class="btn btn-sm">
-          <i class="glyphicon glyphicon-list"></i>
-        </button>
-      </td>-->
-      <td data-title="'Edit/Details'">
-        <button type="button" ng-click="editProject(key)" class="btn btn-sm btn-primary">
-          <i class="glyphicon glyphicon-edit"></i>
-        </button>
       </td>
       <td data-title="'Löschen'">
         <button type="button" ng-click="removeSingleProject(key)" class="btn btn-sm btn-danger">
