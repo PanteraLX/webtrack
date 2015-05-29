@@ -1,135 +1,143 @@
-<div class="inhalt row">
-  <div class="col col-md-12">
-    <form class="form-horizontal" ng-submit="editProject()" novalidate name="EditForm">
-      <h2>Projektdetails</h2>
+<div ng-include="'partials/navbarlogged.html'"></div>
 
-      <div class="form-group">
-        <label class="control-label col-md-2" for="inputProjectId">Projekt-ID</label>
+<div class="container">
+  <div class="inhalt row">
+    <div class="col col-md-12">
+      <form class="form-horizontal" ng-submit="editProject()" novalidate name="EditForm">
+        <h2>Projektdetails</h2>
 
-        <div class="col-md-1">
-          <input type="text" id="inputProjectId" class="form-control" readonly ng-required="true" ng-model="projectKey">
+        <div class="form-group">
+          <label class="control-label col-md-2" for="inputProjectId">Projekt-ID</label>
+
+          <div class="col-md-1">
+            <input type="text" id="inputProjectId" class="form-control" readonly ng-required="true"
+                   ng-model="projectKey">
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label class="control-label col-md-2" for="inputCreated">Erfasst am</label>
+        <div class="form-group">
+          <label class="control-label col-md-2" for="inputCreated">Erfasst am</label>
 
-        <div class="col-md-3">
-          <input type="" id="inputCreated" class="form-control" value="{{ project.created | date: 'dd.MM.yyyy HH:mm'}}"
-                 readonly>
+          <div class="col-md-3">
+            <input type="" id="inputCreated" class="form-control"
+                   value="{{ project.created | date: 'dd.MM.yyyy HH:mm'}}"
+                   readonly>
+          </div>
+
+          <label class="control-label col-md-2" for="inputUpdated">Aktualisiert am</label>
+
+          <div class="col-md-3">
+            <input type="" id="inputUpdated" class="form-control"
+                   value="{{ project.updated | date: 'dd.MM.yyyy HH:mm'}}"
+                   readonly>
+          </div>
         </div>
+        <div class="form-group">
+          <label class="control-label col-md-2" for="inputProjectName">Projektname</label>
 
-        <label class="control-label col-md-2" for="inputUpdated">Aktualisiert am</label>
-
-        <div class="col-md-3">
-          <input type="" id="inputUpdated" class="form-control" value="{{ project.updated | date: 'dd.MM.yyyy HH:mm'}}"
-                 readonly>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="control-label col-md-2" for="inputProjectName">Projektname</label>
-
-        <div class="col-md-8">
-          <p class="input-group">
-            <input type="text" id="inputProjectName" class="form-control" ng-required="true"
-                   ng-model="project.projectName" ng-readonly="NameEditable">
+          <div class="col-md-8">
+            <p class="input-group">
+              <input type="text" id="inputProjectName" class="form-control" ng-required="true"
+                     ng-model="project.projectName" ng-readonly="NameEditable">
             <span class="input-group-btn">
               <button type="button" class="btn btn-default" ng-click="toggleNameReadonly()">
                 <i class="glyphicon glyphicon-pencil"></i>
               </button>
             </span>
-          </p>
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label class="control-label col-md-2" for="inputPL">Projektleiter</label>
+        <div class="form-group">
+          <label class="control-label col-md-2" for="inputPL">Projektleiter</label>
 
-        <div class="col-md-8">
-          <p class="input-group">
-            <input type="text" id="inputPL" class="form-control" ng-required="true"
-                   ng-model="project.projectLeader" ng-readonly="PlEditable">
+          <div class="col-md-8">
+            <p class="input-group">
+              <input type="text" id="inputPL" class="form-control" ng-required="true"
+                     ng-model="project.projectLeader" ng-readonly="PlEditable">
             <span class="input-group-btn">
               <button type="button" class="btn btn-default" ng-click="togglePlReadonly()">
                 <i class="glyphicon glyphicon-pencil"></i>
               </button>
             </span>
-          </p>
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label class="control-label col-md-2" for="inputProjectPerson">Mitarbeiter</label>
+        <div class="form-group">
+          <label class="control-label col-md-2" for="inputProjectPerson">Mitarbeiter</label>
 
-        <div class="col-md-8">
-          <p class="input-group">
-            <input type="text" id="inputProjectPerson" class="form-control" ng-required="true"
-                   ng-model="project.employees" ng-readonly="EmplEditable">
+          <div class="col-md-8">
+            <p class="input-group">
+              <input type="text" id="inputProjectPerson" class="form-control" ng-required="true"
+                     ng-model="project.employees" ng-readonly="EmplEditable">
             <span class="input-group-btn">
               <button type="button" class="btn btn-default" ng-click="toggleEmpReadonly()">
                 <i class="glyphicon glyphicon-pencil"></i>
               </button>
             </span>
-          </p>
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label class="control-label col-md-2" for="inputProjectStart">Projektstart</label>
+        <div class="form-group">
+          <label class="control-label col-md-2" for="inputProjectStart">Projektstart</label>
 
-        <div class="col-md-3">
-          <p class="input-group">
-            <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="project.projectStart"
-                   id="inputProjectStart"
-                   is-open="openedStart" datepicker-options="dateOptions" readonly
-                   ng-required="true" close-text="Close" format-month="MM" format-day-title="MM.yyyy">
+          <div class="col-md-3">
+            <p class="input-group">
+              <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="project.projectStart"
+                     id="inputProjectStart"
+                     is-open="openedStart" datepicker-options="dateOptions" readonly
+                     ng-required="true" close-text="Close" format-month="MM" format-day-title="MM.yyyy">
             <span class="input-group-btn">
               <button type="button" class="btn btn-default" ng-click="open($event,'openedStart')">
                 <i class="glyphicon glyphicon-calendar"></i>
               </button>
             </span>
-          </p>
-        </div>
+            </p>
+          </div>
 
-        <label class="control-label col-md-2" for="inputProjectLength">Projektdauer</label>
-        <div class="col-md-3">
-          <input type="text" class="form-control" ng-value="((project.projectEnd - project.projectStart)/86400000) + ' Tage'"
-                 id="inputProjectLength" readonly>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="control-label col-md-2" for="inputProjectEnd">Projektende</label>
+          <label class="control-label col-md-2" for="inputProjectLength">Projektdauer</label>
 
-        <div class="col-md-3">
-          <p class="input-group">
-            <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="project.projectEnd"
-                   id="inputProjectEnd"
-                   is-open="openedEnd" datepicker-options="dateOptions" readonly min-date="project.projectStart"
-                   ng-required="true" close-text="Close" format-month="MM" format-day-title="MM.yyyy">
+          <div class="col-md-3">
+            <input type="text" class="form-control"
+                   ng-value="((project.projectEnd - project.projectStart)/86400000) + ' Tage'"
+                   id="inputProjectLength" readonly>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-md-2" for="inputProjectEnd">Projektende</label>
+
+          <div class="col-md-3">
+            <p class="input-group">
+              <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="project.projectEnd"
+                     id="inputProjectEnd"
+                     is-open="openedEnd" datepicker-options="dateOptions" readonly min-date="project.projectStart"
+                     ng-required="true" close-text="Close" format-month="MM" format-day-title="MM.yyyy">
             <span class="input-group-btn">
               <button type="button" class="btn btn-default" ng-click="open($event,'openedEnd')">
                 <i class="glyphicon glyphicon-calendar"></i>
               </button>
             </span>
-          </p>
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <div class="col-md-offset-2 col-md-2">
-          <button class="btn btn-md btn-primary btn-block" type="submit" ng-disabled="EditForm.$invalid">
-            Speichern
-          </button>
-        </div>
-        <div class="col-md-2">
-          <button class="btn btn-md btn-block btn-danger" type="button" ng-click="removeSingleProject()">
-            Löschen
-          </button>
-        </div>
-        <div class="col-md-2">
-          <a ng-href="#/overview">
-            <button class="btn btn-md btn-block" type="button">
-              Abbrechen
+        <div class="form-group">
+          <div class="col-md-offset-2 col-md-2">
+            <button class="btn btn-md btn-primary btn-block" type="submit" ng-disabled="EditForm.$invalid">
+              Speichern
             </button>
-          </a>
+          </div>
+          <div class="col-md-2">
+            <button class="btn btn-md btn-block btn-danger" type="button" ng-click="removeSingleProject()">
+              Löschen
+            </button>
+          </div>
+          <div class="col-md-2">
+            <a ng-href="#/overview">
+              <button class="btn btn-md btn-block" type="button">
+                Abbrechen
+              </button>
+            </a>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
 </div>
-

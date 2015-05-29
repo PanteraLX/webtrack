@@ -1,52 +1,56 @@
-<h2>Projekte</h2>
-<br/>
-<div class="row">
-  <div class="col-md-4">
-    <a ng-href="#/add">
-      <button type="button" ng-click="newProject()" class="btn">
-        Neues Projekt
-      </button>
-    </a>
+<div ng-include="'partials/navbarlogged.html'"></div>
+
+<div class="container">
+  <h2>Projekte</h2>
+  <br/>
+
+  <div class="row">
+    <div class="col-md-4">
+      <a ng-href="#/add">
+        <button type="button" ng-click="newProject()" class="btn">
+          Neues Projekt
+        </button>
+      </a>
+    </div>
   </div>
+  <br/>
+
+  <table ng-table="tableParams" show-filter="true" class="table">
+    <tr ng-repeat="(key,project) in projects">
+      <td data-title="'ID'" sortable="'projectId'">
+        <span>{{key}}</span>
+      </td>
+      <td data-title="'Projektname'" sortable="'projectName'" filter="{ 'projectName': 'text'}">
+        <span>{{project.projectName}}</span>
+      </td>
+      <td data-title="'Projektleiter'" filter="{ 'projectLeader': 'text'}">
+        <span>{{project.projectLeader}}</span>
+      </td>
+      <td data-title="'Mitarbeiter'">
+        <span>{{project.employees}}</span>
+      </td>
+      <td data-title="'Projektstart'" sortable="'projectStart'">
+        <span>{{project.projectStart | date: 'dd.MM.yyyy'}}</span>
+      </td>
+      <td data-title="'Projektende'" sortable="'projectEnd'">
+        <span>{{project.projectEnd | date: 'dd.MM.yyyy'}}</span>
+      </td>
+      <!--<td data-title="'Details'">
+        <button type="button" ng-click="showDetails(key)" class="btn btn-sm">
+          <i class="glyphicon glyphicon-list"></i>
+        </button>
+      </td>-->
+      <td data-title="'Edit/Details'">
+        <button type="button" ng-click="editProject(key)" class="btn btn-sm btn-primary">
+          <i class="glyphicon glyphicon-edit"></i>
+        </button>
+      </td>
+      <td data-title="'Löschen'">
+        <button type="button" ng-click="removeSingleProject(key)" class="btn btn-sm btn-danger">
+          <i class="glyphicon glyphicon-remove"></i>
+        </button>
+      </td>
+    </tr>
+  </table>
 </div>
-<br/>
-
-<table ng-table="tableParams" show-filter="true" class="table">
-  <tr ng-repeat="(key,project) in projects">
-    <td data-title="'ID'" sortable="'projectId'">
-      <span>{{key}}</span>
-    </td>
-    <td data-title="'Projektname'" sortable="'projectName'" filter="{ 'projectName': 'text'}">
-      <span>{{project.projectName}}</span>
-    </td>
-    <td data-title="'Projektleiter'" filter="{ 'projectLeader': 'text'}">
-      <span>{{project.projectLeader}}</span>
-    </td>
-    <td data-title="'Mitarbeiter'">
-      <span>{{project.employees}}</span>
-    </td>
-    <td data-title="'Projektstart'" sortable="'projectStart'">
-      <span>{{project.projectStart | date: 'dd.MM.yyyy'}}</span>
-    </td>
-    <td data-title="'Projektende'" sortable="'projectEnd'">
-      <span>{{project.projectEnd | date: 'dd.MM.yyyy'}}</span>
-    </td>
-    <!--<td data-title="'Details'">
-      <button type="button" ng-click="showDetails(key)" class="btn btn-sm">
-        <i class="glyphicon glyphicon-list"></i>
-      </button>
-    </td>-->
-    <td data-title="'Edit/Details'">
-      <button type="button" ng-click="editProject(key)" class="btn btn-sm btn-primary">
-        <i class="glyphicon glyphicon-edit"></i>
-      </button>
-    </td>
-    <td data-title="'Löschen'">
-      <button type="button" ng-click="removeSingleProject(key)" class="btn btn-sm btn-danger">
-        <i class="glyphicon glyphicon-remove"></i>
-      </button>
-    </td>
-  </tr>
-</table>
-
 

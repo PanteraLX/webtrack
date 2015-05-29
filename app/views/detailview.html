@@ -1,49 +1,56 @@
-<h2>Projektdetails</h2>
-<br/>
-<div class="row">
-  <div class="col-md-4">
-    <a ng-href="#/addState">
-      <button type="button" ng-click="addState()" class="btn btn-success">
-        Neuer Eintrag
-      </button>
-    </a>
-    <br/>
-    <table st-safe-src="projectdetails" st-table="projectsa" class="table table-striped">
-      <thead>
-      <tr>
-        <th st-sort="projectName">Projektname</th>
-        <th st-sort="employees">Mitarbeiter</th>
-        <th st-sort="phase">Projektphase</th>
-        <th st-sort="phaseLength">Phasendauer</th>
-        <th st-sort="lastChange">letzte Änderung</th>
-        <th>Edit</th>
-        <th>Löschen</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr st-select-row="projectstates" st-select-mode="multiple" ng-repeat="(key,projectstates) in project">
-        <td>{{projectdetails.projectName}}</td>
-        <td>{{projectdetails.employees}}</td>
-        <td>{{projectdetails.phase}}</td>
-        <td>{{projectdetails.phaseLength}}</td>
-        <td>{{projectdetails.lastChange}}</td>
-        <td>
-          <button type="button" ng-click="editProjectdetails(key)" class="btn btn-sm btn-primary">
-            <i class="glyphicon glyphicon-edit"></i>
-          </button>
-        </td>
-        <td>
-          <button type="button" ng-click="removeSingleProjectdetails(key)" class="btn btn-sm btn-danger">
-            <i class="glyphicon glyphicon-remove"></i>
-          </button>
-        </td>
-      </tr>
-      </tbody>
-      <tfoot>
-      <tr>
-        <td colspan="5" class="text-center">
-          <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
-        </td>
-      </tr>
-      </tfoot>
-    </table>
+<div ng-include="'partials/navbarlogged.html'"></div>
+
+<div class="container">
+  <h2>Projektdetails</h2>
+  <br/>
+
+  <div class="row">
+    <div class="col-md-4">
+      <a ng-href="#/addState">
+        <button type="button" ng-click="addState()" class="btn btn-success">
+          Neuer Eintrag
+        </button>
+      </a>
+      <br/>
+      <table st-safe-src="projectdetails" st-table="projectsa" class="table table-striped">
+        <thead>
+        <tr>
+          <th st-sort="projectName">Projektname</th>
+          <th st-sort="employees">Mitarbeiter</th>
+          <th st-sort="phase">Projektphase</th>
+          <th st-sort="phaseLength">Phasendauer</th>
+          <th st-sort="lastChange">letzte Änderung</th>
+          <th>Edit</th>
+          <th>Löschen</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr st-select-row="projectstates" st-select-mode="multiple" ng-repeat="(key,projectstates) in project">
+          <td>{{projectdetails.projectName}}</td>
+          <td>{{projectdetails.employees}}</td>
+          <td>{{projectdetails.phase}}</td>
+          <td>{{projectdetails.phaseLength}}</td>
+          <td>{{projectdetails.lastChange}}</td>
+          <td>
+            <button type="button" ng-click="editProjectdetails(key)" class="btn btn-sm btn-primary">
+              <i class="glyphicon glyphicon-edit"></i>
+            </button>
+          </td>
+          <td>
+            <button type="button" ng-click="removeSingleProjectdetails(key)" class="btn btn-sm btn-danger">
+              <i class="glyphicon glyphicon-remove"></i>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+          <td colspan="5" class="text-center">
+            <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+          </td>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>
