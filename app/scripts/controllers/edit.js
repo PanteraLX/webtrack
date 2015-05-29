@@ -11,8 +11,12 @@ angular.module('webtrackApp')
   .controller('EditCtrl', ['$scope', '$firebaseArray', 'sharedProperties', '$location', '$cookieStore', 'md5',
     function ($scope, $firebaseArray, sharedProperties, $location, $cookieStore, md5) {
 
-      $scope.token = $cookieStore.get('token');
-      $scope.mail = $cookieStore.get('mail');
+      if (angular.isUndefined($cookieStore.get('token'))) {
+        $location.path('/signin');
+      } else {
+        $scope.token = $cookieStore.get('token');
+        $scope.mail = $cookieStore.get('mail');
+      }
       $scope.projectKey = $cookieStore.get('projectKey');
       $scope.PlEditable = true;
       $scope.EmplEditable = true;
