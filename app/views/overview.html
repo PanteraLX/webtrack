@@ -17,22 +17,22 @@
 
   <table ng-table="tableParams" show-filter="true" class="table">
     <tr ng-repeat="(key,project) in projects">
-      <td data-title="'ID'" sortable="'projectId'">
+      <td data-title="'ID'">
         <span>{{key}}</span>
       </td>
-      <td data-title="'Projektname'" sortable="'projectName'" filter="{ 'projectName': 'text'}">
+      <td data-title="'Projektname'">
         <span>{{project.projectName}}</span>
       </td>
-      <td data-title="'Projektleiter'" filter="{ 'projectLeader': 'text'}">
+      <td data-title="'Projektleiter'">
         <span>{{project.projectLeader}}</span>
       </td>
       <td data-title="'Mitarbeiter'">
         <span>{{project.employees}}</span>
       </td>
-      <td data-title="'Projektstart'" sortable="'projectStart'">
+      <td data-title="'Projektstart'">
         <span>{{project.projectStart | date: 'dd.MM.yyyy'}}</span>
       </td>
-      <td data-title="'Projektende'" sortable="'projectEnd'">
+      <td data-title="'Projektende'">
         <span>{{project.projectEnd | date: 'dd.MM.yyyy'}}</span>
       </td>
       <!--<td data-title="'Details'">
