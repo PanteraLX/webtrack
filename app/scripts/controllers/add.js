@@ -11,8 +11,12 @@ angular.module('webtrackApp')
   .controller('AddCtrl', ['$scope', '$firebaseArray', '$location', '$cookieStore', 'md5',
     function ($scope, $firebaseArray, $location, $cookieStore, md5) {
 
-      $scope.token = $cookieStore.get('token');
-      $scope.mail = $cookieStore.get('mail');
+      if (angular.isUndefined($cookieStore.get('token'))) {
+        $location.path('/signin');
+      } else {
+        $scope.token = $cookieStore.get('token');
+        $scope.mail = $cookieStore.get('mail');
+      }
 
       var url = "https://webtrack.firebaseio.com/data_projects/" + md5.createHash($scope.mail);
       var ref = new Firebase(url);

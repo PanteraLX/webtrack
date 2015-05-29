@@ -11,8 +11,12 @@ angular.module('webtrackApp')
   .controller('OverviewCtrl', ['$scope', '$location', '$firebaseArray', 'sharedProperties', '$cookieStore', 'md5', 'ngTableParams', '$filter',
     function ($scope, $location, $firebaseArray, sharedProperties, $cookieStore, md5, ngTableParams, $filter) {
 
-      $scope.token = $cookieStore.get('token');
-      $scope.mail = $cookieStore.get('mail');
+      if (angular.isUndefined($cookieStore.get('token'))) {
+        $location.path('/signin');
+      } else {
+        $scope.token = $cookieStore.get('token');
+        $scope.mail = $cookieStore.get('mail');
+      }
 
       var url = "https://webtrack.firebaseio.com/data_projects/" + md5.createHash($scope.mail);
       var ref = new Firebase(url);
@@ -44,19 +48,8 @@ angular.module('webtrackApp')
 
       $scope.tableParams = new ngTableParams({
         page: 1,
-        count: 5
-      }, {
-        total: $scope.projects.length, // length of data
-        getData: function ($defer, params) {
-          var orderedData = params.filter() ?
-            $filter('filter')($scope.projects, params.filter()) :
-            $scope.projects;
-
-          //$scope.users = orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count());
-
-          //params.total(orderedData.length); // set total for recalc pagination
-          //$defer.resolve($scope.users);
-        }
+        count: 5,
+        sorting: {projectName: 'desc'}
       });
 
     }]);
