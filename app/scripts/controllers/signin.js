@@ -21,7 +21,6 @@ angular.module('webtrackApp')
         }).then(function (user) {
           $cookieStore.put("token", user.token);
           $cookieStore.put("mail", user.password.email);
-          $scope.message = user.token;
           $rootScope.userIsAuthenticated = true;
           $location.path('/overview');
         }).catch(function (error) {
