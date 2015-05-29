@@ -2,33 +2,39 @@
   <div class="col col-md-12">
     <form class="form-horizontal" ng-submit="addProject()" novalidate name="AddingForm">
       <h2>Neues Projekt hinzufügen</h2>
+
       <div class="form-group">
-        <label class="control-label col-md-2" for="inputProjectName" >Projektname</label>
+        <label class="control-label col-md-2" for="inputProjectName">Projektname</label>
+
         <div class="col-md-8">
           <input type="text" id="inputProjectName" class="form-control" ng-required="true" ng-model="projectName">
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label col-md-2" for="inputPL" >Projektleiter</label>
+        <label class="control-label col-md-2" for="inputPL">Projektleiter</label>
+
         <div class="col-md-8">
           <input type="text" id="inputPL" class="form-control" ng-required="true" ng-model="projectLeader">
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label col-md-2" for="inputProjectPerson" >Mitarbeiter</label>
+        <label class="control-label col-md-2" for="inputProjectPerson">Mitarbeiter</label>
+
         <div class="col-md-8">
           <input type="text" id="inputProjectPerson" class="form-control" ng-required="true" ng-model="employees">
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label col-md-2" for="inputProjectStart" >Projektstart</label>
+        <label class="control-label col-md-2" for="inputProjectStart">Projektstart</label>
+
         <div class="col-md-4">
           <p class="input-group">
-            <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="projectStart" id="inputProjectStart"
-                   is-open="opened" datepicker-options="dateOptions"
+            <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="projectStart"
+                   id="inputProjectStart"
+                   is-open="openedStart" datepicker-options="dateOptions" readonly
                    ng-required="true" close-text="Close" format-month="MM" format-day-title="MM.yyyy">
             <span class="input-group-btn">
-              <button type="button" class="btn btn-default" ng-click="openStart($event)">
+              <button type="button" class="btn btn-default" ng-click="open($event,'openedStart')">
                 <i class="glyphicon glyphicon-calendar"></i>
               </button>
             </span>
@@ -36,20 +42,24 @@
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label col-md-2" for="inputProjectEnd" >Projektende</label>
+        <label class="control-label col-md-2" for="inputProjectEnd">Projektende</label>
+
         <div class="col-md-4">
           <p class="input-group">
-            <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="projectEnd" id="inputProjectEnd"
-                   is-open="opened" datepicker-options="dateOptions"
+            <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="projectEnd"
+                   id="inputProjectEnd" min-date="projectStart"
+                   is-open="openedEnd" datepicker-options="dateOptions" readonly
                    ng-required="true" close-text="Close" format-month="MM" format-day-title="MM.yyyy">
             <span class="input-group-btn">
-              <button type="button" class="btn btn-default" ng-click="openEnd($event)">
+              <button type="button" class="btn btn-default" ng-click="open($event,'openedEnd')">
                 <i class="glyphicon glyphicon-calendar"></i>
               </button>
             </span>
           </p>
         </div>
       </div>
+      <div ui-date="dateOptions" name="DateOfBirth"></div>
+
       <div class="form-group">
         <div class="col-md-offset-2 col-md-2">
           <button class="btn btn-md btn-primary btn-block" type="submit" ng-disabled="AddingForm.$invalid">
@@ -57,9 +67,11 @@
           </button>
         </div>
         <div class="col-md-2">
-          <a ng-href="#/overview" ><button class="btn btn-md btn-block" type="button">
-            Abbrechen
-          </button></a>
+          <a ng-href="#/overview">
+            <button class="btn btn-md btn-block" type="button">
+              Abbrechen
+            </button>
+          </a>
         </div>
       </div>
     </form>

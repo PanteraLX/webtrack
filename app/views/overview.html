@@ -1,5 +1,5 @@
 <h2>Projekte</h2>
-<br />
+<br/>
 <div class="row">
   <div class="col-md-4">
     <a ng-href="#/add">
@@ -9,12 +9,12 @@
     </a>
   </div>
 </div>
-<br />
+<br/>
 
 <table ng-table="tableParams" show-filter="true" class="table">
   <tr ng-repeat="(key,project) in projects">
     <td data-title="'ID'" sortable="'projectId'">
-      <span>{{project.projectId}}</span>
+      <span>{{key}}</span>
     </td>
     <td data-title="'Projektname'" sortable="'projectName'" filter="{ 'projectName': 'text'}">
       <span>{{project.projectName}}</span>
@@ -31,12 +31,12 @@
     <td data-title="'Projektende'" sortable="'projectEnd'">
       <span>{{project.projectEnd | date: 'dd.MM.yyyy'}}</span>
     </td>
-    <td data-title="'Details'">
+    <!--<td data-title="'Details'">
       <button type="button" ng-click="showDetails(key)" class="btn btn-sm">
         <i class="glyphicon glyphicon-list"></i>
       </button>
-    </td>
-    <td data-title="'Edit'">
+    </td>-->
+    <td data-title="'Edit/Details'">
       <button type="button" ng-click="editProject(key)" class="btn btn-sm btn-primary">
         <i class="glyphicon glyphicon-edit"></i>
       </button>

@@ -11,99 +11,40 @@ angular.module('webtrackApp')
   .controller('AddCtrl', ['$scope', '$firebaseArray', '$location', '$cookieStore', 'md5',
     function ($scope, $firebaseArray, $location, $cookieStore, md5) {
 
-    $scope.token = $cookieStore.get('token');
-    $scope.mail = $cookieStore.get('mail');
+      $scope.token = $cookieStore.get('token');
+      $scope.mail = $cookieStore.get('mail');
 
-    var url = "https://webtrack.firebaseio.com/data_projects/" +  md5.createHash($scope.mail);
-    var ref = new Firebase(url);
-    var projects = $firebaseArray(ref);
+      var url = "https://webtrack.firebaseio.com/data_projects/" + md5.createHash($scope.mail);
+      var ref = new Firebase(url);
+      var projects = $firebaseArray(ref);
 
-    $scope.projects = projects;
+      $scope.projects = projects;
 
-    $scope.addProject = function() {
-      projects.$add({
-        projectId : Math.floor(Math.random() * 100),
-        projectName: $scope.projectName,
-        projectLeader: $scope.projectLeader,
-        projectStart: $scope.projectStart.toJSON(),
-        projectEnd: $scope.projectEnd.toJSON(),
-        employees: $scope.employees,
-        created: Firebase.ServerValue.TIMESTAMP
-      }).then( function () {
-        $location.path('/overview');
-      })
-    };
+      $scope.addProject = function () {
+        projects.$add({
+          projectName: $scope.projectName,
+          projectLeader: $scope.projectLeader,
+          projectStart: Date.parse($scope.projectStart),
+          projectEnd: Date.parse($scope.projectEnd),
+          employees: $scope.employees,
+          created: Firebase.ServerValue.TIMESTAMP
+        }).then(function () {
+          $location.path('/overview');
+        })
+      };
 
-    $scope.dateOptions = {
-      formatYear: 'yy',
-      startingDay: 1
-    };
+      $scope.open = function ($event, opened) {
+        $event.preventDefault();
+        $event.stopPropagation();
 
-    $scope.today = function() {
-      $scope.dt = new Date();
-    };
-    $scope.today();
+        $scope[opened] = true;
+      };
 
-    $scope.clear = function () {
-      $scope.dt = null;
-    };
+      $scope.dateOptions = {
+        formatYear: 'yy',
+        startingDay: 1
+      };
 
-    $scope.toggleMin = function() {
-      $scope.minDate = $scope.minDate ? null : new Date();
-    };
-    $scope.toggleMin();
+      $scope.format = 'dd.MM.yy';
 
-    $scope.openStart = function($event) {
-      $event.preventDefault();
-      $event.stopPropagation();
-
-      $scope.opened = true;
-    };
-
-    $scope.openEnd = function($event) {
-      $event.preventDefault();
-      $event.stopPropagation();
-
-      $scope.opened = true;
-    };
-
-    $scope.dateOptions = {
-      formatYear: 'yy',
-      startingDay: 1
-    };
-
-    $scope.format = 'dd.MM.yy';
-
-    var tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    var afterTomorrow = new Date();
-    afterTomorrow.setDate(tomorrow.getDate() + 2);
-    $scope.events =
-      [
-        {
-          date: tomorrow,
-          status: 'full'
-        },
-        {
-          date: afterTomorrow,
-          status: 'partially'
-        }
-      ];
-
-    $scope.getDayClass = function(date, mode) {
-      if (mode === 'day') {
-        var dayToCheck = new Date(date).setHours(0,0,0,0);
-
-        for (var i=0;i<$scope.events.length;i++){
-          var currentDay = new Date($scope.events[i].date).setHours(0,0,0,0);
-
-          if (dayToCheck === currentDay) {
-            return $scope.events[i].status;
-          }
-        }
-      }
-
-      return '';
-    };
-
-  }]);
+    }]);
