@@ -43,8 +43,8 @@ angular.module('webtrackApp')
           case 'INVALID_PASSWORD':
             return "Falsches Passwort";
             break;
-          case 'INVALID_EMAIL':
-            return "Ungültige E-Mail-Adresse";
+          case 'INVALID_USER':
+            return "Dieser Benutzer wurde noch nicht registriert";
             break;
         }
       }
