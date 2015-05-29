@@ -15,27 +15,27 @@
   </div>
   <br/>
 
-  <table ng-table="tableParams" show-filter="true" class="table">
+  <table ng-table="tableParams" show-filter="true" class="table" >
     <tr ng-repeat="(key,project) in projects" ng-click="editProject(key)">
-      <td data-title="'ID'">
+      <td data-title="'ID'" class="text-align" sortable-header>
         <span>{{key}}</span>
       </td>
-      <td data-title="'Projektname'">
+      <td data-title="'Projektname'" class="text-align">
         <span>{{project.projectName}}</span>
       </td>
-      <td data-title="'Projektleiter'">
+      <td data-title="'Projektleiter'" class="text-align">
         <span>{{project.projectLeader}}</span>
       </td>
-      <td data-title="'Mitarbeiter'">
+      <td data-title="'Mitarbeiter'" class="text-align">
         <span>{{project.employees}}</span>
       </td>
-      <td data-title="'Projektstart'">
+      <td data-title="'Projektstart'" class="text-align">
         <span>{{project.projectStart | date: 'dd.MM.yyyy'}}</span>
       </td>
-      <td data-title="'Projektende'">
+      <td data-title="'Projektende'" class="text-align">
         <span>{{project.projectEnd | date: 'dd.MM.yyyy'}}</span>
       </td>
-      <td data-title="'Löschen'">
+      <td data-title="'Löschen'" class="text-align">
         <button type="button" ng-click="removeSingleProject(key)" class="btn btn-sm btn-danger">
           <i class="glyphicon glyphicon-remove"></i>
         </button>
