@@ -8,32 +8,29 @@
 
         <div class="form-group">
           <label class="control-label col-md-2" for="inputProjectId">Projekt-ID</label>
-
           <div class="col-md-1">
             <input type="text" id="inputProjectId" class="form-control" readonly ng-required="true"
                    ng-model="projectKey">
           </div>
         </div>
+
         <div class="form-group">
           <label class="control-label col-md-2" for="inputCreated">Erfasst am</label>
-
           <div class="col-md-3">
             <input type="" id="inputCreated" class="form-control"
                    value="{{ project.created | date: 'dd.MM.yyyy HH:mm'}}"
                    readonly>
           </div>
-
           <label class="control-label col-md-2" for="inputUpdated">Aktualisiert am</label>
-
           <div class="col-md-3">
             <input type="" id="inputUpdated" class="form-control"
                    value="{{ project.updated | date: 'dd.MM.yyyy HH:mm'}}"
                    readonly>
           </div>
         </div>
+
         <div class="form-group">
           <label class="control-label col-md-2" for="inputProjectName">Projektname</label>
-
           <div class="col-md-8">
             <p class="input-group">
               <input type="text" id="inputProjectName" class="form-control" ng-required="true"
@@ -46,9 +43,9 @@
             </p>
           </div>
         </div>
+
         <div class="form-group">
           <label class="control-label col-md-2" for="inputPL">Projektleiter</label>
-
           <div class="col-md-8">
             <p class="input-group">
               <input type="text" id="inputPL" class="form-control" ng-required="true"
@@ -61,9 +58,9 @@
             </p>
           </div>
         </div>
+
         <div class="form-group">
           <label class="control-label col-md-2" for="inputProjectPerson">Mitarbeiter</label>
-
           <div class="col-md-8">
             <p class="input-group">
               <input type="text" id="inputProjectPerson" class="form-control" ng-required="true"
@@ -78,7 +75,6 @@
         </div>
         <div class="form-group">
           <label class="control-label col-md-2" for="inputProjectStart">Projektstart</label>
-
           <div class="col-md-3">
             <p class="input-group">
               <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="project.projectStart"
@@ -92,18 +88,16 @@
             </span>
             </p>
           </div>
-
           <label class="control-label col-md-2" for="inputProjectLength">Projektdauer</label>
-
           <div class="col-md-3">
             <input type="text" class="form-control"
                    ng-value="((project.projectEnd - project.projectStart)/86400000) + ' Tage'"
                    id="inputProjectLength" readonly>
           </div>
         </div>
+
         <div class="form-group">
           <label class="control-label col-md-2" for="inputProjectEnd">Projektende</label>
-
           <div class="col-md-3">
             <p class="input-group">
               <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="project.projectEnd"
@@ -118,6 +112,18 @@
             </p>
           </div>
         </div>
+
+        <div class="form-group">
+          <label class="control-label col-md-2" for="inputProjectNote">
+            Bemerkung<br/>
+            <span style="font-weight: normal; font-size: small">max. 500 Zeichen</span>
+          </label>
+          <div class="col-md-8">
+            <textarea id="inputProjectNote" ng-maxlength="500" class="form-control" ng-model="project.projectNote"></textarea>
+          </div>
+        </div>
+
+
         <div class="form-group">
           <div class="col-md-offset-2 col-md-2">
             <button class="btn btn-md btn-primary btn-block" type="submit" ng-disabled="EditForm.$invalid">
@@ -137,6 +143,7 @@
             </a>
           </div>
         </div>
+
       </form>
     </div>
   </div>
