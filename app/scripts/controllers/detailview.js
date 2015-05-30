@@ -20,6 +20,12 @@ angular.module('webtrackApp')
         $scope.projects = projects;
       });
 
+      $scope.removeSingleProject = function removeSingleProject(key) {
+        var box = window.confirm("Wollen sie das Projekt wirklich löschen?");
+        if (box) {
+          projects.$remove(key);
+        }
+      };
 
       $scope.itemsByPage = 10;
 
