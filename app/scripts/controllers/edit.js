@@ -48,8 +48,9 @@ angular.module('webtrackApp')
 
       $scope.removeSingleProject = function removeSingleProject() {
         var box = window.confirm("Wollen sie das Projekt wirklich löschen?");
+        console.log
         if (box) {
-          $scope.projects.$remove($scope.projectKey);
+          projects.$remove($scope.projectKey);
           $location.path('/overview');
         }
       };
