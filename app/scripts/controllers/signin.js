@@ -45,6 +45,9 @@ angular.module('webtrackApp')
           case 'INVALID_USER':
             return "Dieser Benutzer wurde noch nicht registriert";
             break;
+          case 'INVALID_EMAIL':
+            return "Diese E-Mail-Adresse ist nicht gültig";
+            break;
         }
       }
 
