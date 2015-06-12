@@ -77,7 +77,7 @@ angular
         requireLogin: true
       })
       .when('/navbar', {
-        templateUrl: '../partials/navbarlogged.html',
+        templateUrl: '../views/navbarlogged.html',
         controller: 'NavbarCtrl',
         requireLogin: true
       })
